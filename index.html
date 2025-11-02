@@ -29,79 +29,356 @@
    <link rel="stylesheet" href="css/responsive.css">
 
    <style>
+      /* Base responsive styles */
+      :root {
+         --primary-color: #cf455c;
+         --text-light: #ffffff;
+         --text-dark: #333333;
+         --spacing-unit: 1rem;
+      }
+      
+      * {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+      }
+      
+      html {
+         -webkit-text-size-adjust: 100%;
+         -ms-text-size-adjust: 100%;
+         font-size: 16px;
+         line-height: 1.5;
+      }
+
+      body {
+         -webkit-text-size-adjust: none;
+         -webkit-font-smoothing: antialiased;
+         -moz-osx-font-smoothing: grayscale;
+         text-rendering: optimizeLegibility;
+         font-family: 'Roboto', sans-serif;
+         color: var(--text-dark);
+         line-height: 1.6;
+         overflow-x: hidden;
+      }
+
+      img, iframe, video {
+         max-width: 100%;
+         height: auto;
+         display: block;
+      }
+
       /* Profile Section */
-
-
       /*-------------------------------------------------------*/
+      
+      /* Layout Structure */
+      .container {
+         width: 100%;
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 0 15px;
+      }
+      
+      .row {
+         display: flex;
+         flex-wrap: wrap;
+         margin: 0 -15px;
+      }
+      
+      .col-md-6 {
+         width: 50%;
+         padding: 0 15px;
+      }
+      
+      /* Resume Section Styling */
+      .timeline-section {
+         width: 100%;
+         padding: 0;
+      }
+      
+      .ex-box {
+         background: #fff;
+         border-radius: 8px;
+         padding: 20px;
+         margin-bottom: 20px;
+         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      
+      .ex-box h2 {
+         background: var(--primary-color);
+         color: white;
+         display: inline-block;
+         padding: 3px 15px;
+         border-radius: 20px;
+         font-size: 0.9rem;
+         margin-bottom: 10px;
+      }
+      
+      .ex-box h4 {
+         color: var(--text-dark);
+         font-size: 1.2rem;
+         margin: 5px 0 10px;
+      }
+      
+      .ex-box p {
+         color: #555;
+         margin-bottom: 10px;
+         font-size: 0.95rem;
+      }
+      
+      .heading-skills h3 {
+         color: white;
+         font-size: 1.5rem;
+         margin: 30px 0 20px;
+         padding-bottom: 10px;
+         border-bottom: 2px solid rgba(255,255,255,0.2);
+      }
+      
+      /* Responsive Adjustments */
+      @media (max-width: 991px) {
+         .container {
+            padding: 0 15px;
+         }
+         
+         .ex-box {
+            padding: 15px;
+         }
+         
+         .heading-skills h3 {
+            font-size: 1.3rem;
+            margin: 25px 0 15px;
+         }
+      }
+      
+      @media (max-width: 768px) {
+         .col-md-6 {
+            width: 100%;
+            padding: 0;
+         }
+         
+         .bg-color-left, 
+         .bg-color-right {
+            padding: 20px 15px !important;
+         }
+         
+         .left-name h2 {
+            font-size: 28px !important;
+            line-height: 1.2;
+         }
+         
+         .ex-box {
+            margin-bottom: 15px;
+         }
+         
+         .heading-skills h3 {
+            margin-top: 20px;
+         }
+      }
+      
+      @media (max-width: 480px) {
+         .ex-box h2 {
+            font-size: 0.85rem;
+            padding: 2px 12px;
+         }
+         
+         .ex-box h4 {
+            font-size: 1.1rem;
+         }
+         
+         .ex-box p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+         }
+         
+         .heading-skills h3 {
+            font-size: 1.2rem;
+            margin: 20px 0 15px;
+         }
+      }
+      /* Profile Section */
       #profile {
          background: #cf455c;
          background-image: url(images/header-shadow.png);
          background-position: center bottom;
          background-repeat: repeat-x;
          overflow: hidden;
+         padding: 20px 0;
       }
 
-      strong{
-         color: navy;
-      }
-
-      /* About */
+      /* About Section */
       .about {
-         float: left;
-         margin-top: 30px;
-         width: 490px;
-         margin-left: 20px;
+         display: flex;
+         flex-direction: column;
+         margin: 20px auto;
+         max-width: 1000px;
+         padding: 0 20px;
       }
 
-      .about .photo-inner {
-         float: left;
+      .about-content {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 30px;
+      }
+
+      .photo-inner {
+         flex: 0 0 200px;
          background: url(images/photo-inner.png) no-repeat;
-         width: 214px;
-         height: 212px;
          padding: 12px 0 0 19px;
       }
 
-      .about .photo-inner img {
+      .photo-inner img {
          background-color: #FFF;
+         max-width: 100%;
+         height: auto;
+         display: block;
+      }
+
+      .about-text {
+         flex: 1;
+         min-width: 300px;
       }
 
       .about h1 {
          font-weight: 900;
          color: #FFF;
-         line-height: 34px;
-         margin-top: 8px;
+         font-size: 2.5rem;
+         line-height: 1.2;
+         margin: 20px 0 10px;
       }
 
       .about h3 {
-         margin-top: 5px;
-         font-size: 18px;
+         margin: 0 0 15px;
+         font-size: 1.2rem;
          color: #FFF;
-         line-height: 18px;
          font-family: 'Roboto Condensed', sans-serif;
-      }
-
-      h3.main-heading .now {
-         background: #cf455c !important;
       }
 
       .about p {
-         font-size: 14px;
-         margin-top: 15px;
+         font-size: 1rem;
          color: #fff;
-         font-weight: 400;
-         line-height: 24px;
-         font-family: 'Roboto Condensed', sans-serif;
+         line-height: 1.6;
+         margin-bottom: 20px;
       }
 
-      /* Personal info */
+      /* Personal Info */
       .personal-info {
-         float: left;
-         margin-top: 30px;
-         width: 310px;
-         min-height: 230px;
-         margin-left: 10px;
-         background: url(images/personal-info-sep.png) no-repeat left top;
-         padding: 20px 0 19px 20px;
+         margin: 30px auto 0;
+         max-width: 800px;
+         padding: 20px;
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+         gap: 20px;
+         background: rgba(0, 0, 0, 0.1);
+         border-radius: 8px;
+      }
+
+      .personal-info li {
+         display: flex;
+         align-items: flex-start;
+         margin: 0;
+         padding: 10px 15px;
+         background: rgba(255, 255, 255, 0.1);
+         border-radius: 6px;
+         transition: background 0.3s ease;
+      }
+
+      .personal-info li:hover {
+         background: rgba(255, 255, 255, 0.15);
+      }
+
+      .personal-info label {
+         display: inline-block;
+         width: 100px;
+         font-weight: 600;
+         color: rgba(255, 255, 255, 0.9);
+         margin-right: 15px;
+         padding: 5px 0;
+         flex-shrink: 0;
+      }
+
+      .personal-info span {
+         flex: 1;
+         color: #fff;
+         padding: 5px 0;
+      }
+
+      .personal-info a {
+         color: #fff;
+         text-decoration: none;
+         transition: color 0.2s ease;
+         word-break: break-all;
+      }
+
+      .personal-info a:hover {
+         color: #f0f0f0;
+         text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+         .personal-info {
+            grid-template-columns: 1fr;
+            gap: 12px;
+            padding: 15px;
+         }
+
+         .personal-info li {
+            flex-direction: column;
+            padding: 12px 15px;
+         }
+
+         .personal-info label {
+            width: 100%;
+            margin-bottom: 5px;
+            color: rgba(255, 255, 255, 0.8);
+         }
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+         .about h1 {
+            font-size: 2rem;
+         }
+
+         .about h3 {
+            font-size: 1.1rem;
+         }
+
+         .about p {
+            font-size: 0.95rem;
+         }
+
+         .personal-info {
+            grid-template-columns: 1fr;
+            padding: 20px;
+         }
+
+         .personal-info label {
+            min-width: 80px;
+            margin-bottom: 5px;
+         }
+      }
+
+      @media (max-width: 480px) {
+         .about {
+            padding: 0 15px;
+         }
+
+         .about h1 {
+            font-size: 1.8rem;
+         }
+
+         .photo-inner {
+            margin: 0 auto;
+            text-align: center;
+         }
+
+         .about-content {
+            flex-direction: column;
+            align-items: center;
+         }
+
+         .about-text {
+            min-width: 100%;
+         }
       }
 
       span.word-wrap a {
@@ -188,14 +465,13 @@
       .timeline li .timelineUnit h4 {
          line-height: 24px;
          font-size: 15px;
-         color: #444;
-
+         color: #fff;
       }
 
       .timeline li .timelineUnit h5 {
          line-height: 18px;
          font-size: 13px;
-         color: #999;
+         color: #fff;
       }
 
       .timeline li .timelineUnit p {
@@ -655,41 +931,324 @@
       <section id="content">
          <div id="profile">
             <div class="about">
-               <div class="photo-inner">
-                  <ul>
-                     <li><img src="images/photo.jpg" height="193" width="153" /></li>
-                  </ul>
+               <div class="about-content">
+                  <div class="photo-inner">
+                     <img src="images/photo.jpg" alt="Hoang Vu" />
+                  </div>
+                  <div class="about-text">
+                     <h1>HOANG VU</h1>
+                     <h3>SOFTWARE DEVELOPER & NETWORK ENGINEER</h3>
+                     <p>Experienced in object-oriented programming (Java, J2EE, C#, Python), web programming (JavaScript, jQuery, HTML, CSS), 
+                        full stack frameworks (Spring, Django, ASP.Net, MERN) and database (MySQL, MongoDB). Built virtual reality application and games with Unity and C#.
+                        Currently working on an online multiplayer TPS battle royale game with Unreal Engine 5 and C++.
+                     </p>
+                  </div>
                </div>
-               <h1>HOANG VU</h1>
-               <h3>SOFTWARE DEVELOPER & NETWORK ENGINEER</h3>
-               <p>Experienced in object-oriented programming (Java, J2EE, C#, Python), web programming (JavaScript, jQuery, HTML, CSS), 
-                  full stack frameworks (Spring, Django, ASP.Net, MERN) and database (MySQL, MongoDB). Built virtual reality application and games with Unity and C#.
-                  Currently working on an online mulitplayer tps battle royale game with Unreal Engine 5 and C++.
-               </p>
-               <br>
+               <div class="contact-box">
+                  <div class="contact-item">
+                     <i class="fas fa-phone"></i>
+                     <a href="tel:16475407166">(647) 540-7166</a>
+                  </div>
+                  <div class="contact-item">
+                     <i class="fas fa-envelope"></i>
+                     <a href="mailto:andrewvu270@gmail.com">andrewvu270@gmail.com</a>
+                  </div>
+                  <div class="contact-item">
+                     <i class="fab fa-linkedin"></i>
+                     <a href="https://www.linkedin.com/in/andrew-hoang-vu/" target="_blank" rel="noopener noreferrer">linkedin.com/in/andrew-hoang-vu</a>
+                  </div>
+                  <div class="contact-item">
+                     <i class="fab fa-github"></i>
+                     <a href="https://github.com/andrewvu270" target="_blank" rel="noopener noreferrer">github.com/andrewvu270</a>
+                  </div>
+                  <div class="contact-item">
+                     <i class="fas fa-globe"></i>
+                     <a href="https://andrewvu270.github.io" target="_blank" rel="noopener noreferrer">andrewvu270.github.io</a>
+                  </div>
+               </div>
+               
+               <style>
+                  .contact-box {
+                     background: rgba(0, 0, 0, 0.1);
+                     border-radius: 8px;
+                     padding: 20px;
+                     margin: 30px auto 0;
+                     max-width: 800px;
+                  }
+                  
+                  .contact-item {
+                     display: flex;
+                     align-items: center;
+                     margin-bottom: 15px;
+                     color: #fff;
+                  }
+                  
+                  .contact-item:last-child {
+                     margin-bottom: 0;
+                  }
+                  
+                  .contact-item i {
+                     width: 30px;
+                     text-align: center;
+                     margin-right: 15px;
+                     color: #cf455c;
+                     font-size: 1.2em;
+                  }
+                  
+                  .contact-item a {
+                     color: #fff;
+                     text-decoration: none;
+                     transition: color 0.3s ease;
+                     word-break: break-all;
+                  }
+                  
+                  .contact-item a:hover {
+                     color: #cf455c;
+                     text-decoration: underline;
+                  }
+                  
+                  @media (max-width: 768px) {
+                     .contact-box {
+                        padding: 15px;
+                     }
+                     
+                     .contact-item {
+                        font-size: 0.9em;
+                     }
+                     
+                     .contact-item i {
+                        font-size: 1em;
+                        margin-right: 12px;
+                     }
+                  }
+               </style>
             </div>
-            <ul class="personal-info">
-               <li><label>Name</label><span>Hoang (Andrew) Vu</span></li>
-               <li><label>Email</label><span class="word-wrap">andrewvu270@gmail.com</span></li>
-               <li><label>Phone</label><span>(647)-540-7166</span></li>
-               <li><label>LinkedIn</label><span class="word-wrap"><a href="https://www.linkedin.com/in/andrew-hoang-vu/">https://www.linkedin.com/in/andrew-hoang-vu/</a></span>
-               </li>
-               <li><label>Github</label><span class="word-wrap"><a href="https://github.com/andrewvu270?tab=repositories">https://github.com/andrewvu270?tab=repositories</a></span>
-               </li>
-            </ul>
          </div><!-- /Profile -->
-         <nav class="menu">
-            <ul class="tabs">
-               <li class="tmenu"><a href="#profile" class="tab-profile"><i><i class="fas fa-user"
-                           aria-hidden="true"></i></i>Profile</a></li>
-               <li class="tmenu"><a href="#resume"><i><i class="fa-brands fa-wpexplorer"
-                           aria-hidden="true"></i></i>Resume</a></li>
-               <li class="tmenu"><a href="#portfolio"><i><i class="fas fa-rocket"
-                           aria-hidden="true"></i></i>Portfolio</a></li>
-               <li class="tmenu"><a href="#contact"><i><i class="fa-brands fa-telegram"
-                           aria-hidden="true"></i></i>Contact</a></li>
-            </ul>
+         <nav class="navbar">
+            <div class="nav-container">
+               <label class="hamburger" aria-label="Menu">
+                  <input type="checkbox" class="nav-toggle" id="nav-toggle" aria-hidden="true">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+               </label>
+               <ul class="nav-menu">
+                  <li class="nav-item">
+                     <a href="#resume" class="nav-link active">
+                        <i class="fa-brands fa-wpexplorer" aria-hidden="true"></i>
+                        <span>Resume</span>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="#portfolio" class="nav-link">
+                        <i class="fas fa-rocket" aria-hidden="true"></i>
+                        <span>Portfolio</span>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="#contact" class="nav-link">
+                        <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+                        <span>Contact</span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
          </nav>
+
+         <style>
+            /* Responsive Navigation */
+            .navbar {
+               background: rgba(0, 0, 0, 0.8);
+               position: sticky;
+               top: 0;
+               z-index: 1000;
+               backdrop-filter: blur(10px);
+               -webkit-backdrop-filter: blur(10px);
+               border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-container {
+               max-width: 1200px;
+               margin: 0 auto;
+               padding: 0 20px;
+               display: flex;
+               justify-content: flex-end;
+               align-items: center;
+               height: 60px;
+            }
+
+            .nav-menu {
+               display: flex;
+               list-style: none;
+               margin: 0;
+               padding: 0;
+            }
+
+            .nav-item {
+               margin: 0 5px;
+            }
+
+            .nav-link {
+               color: #fff;
+               text-decoration: none;
+               padding: 0.8rem 1.2rem;
+               display: flex;
+               align-items: center;
+               border-radius: 4px;
+               transition: all 0.3s ease;
+               font-size: 0.95rem;
+               font-weight: 500;
+            }
+
+            .nav-link i {
+               margin-right: 8px;
+               font-size: 1.1rem;
+            }
+
+            .nav-link:hover,
+            .nav-link.active {
+               background: rgba(207, 69, 92, 0.2);
+               color: #fff;
+            }
+
+            .nav-link.active {
+               color: #cf455c;
+               font-weight: 600;
+            }
+
+            .hamburger {
+               display: none;
+               cursor: pointer;
+               padding: 10px;
+               position: relative;
+               z-index: 1001;
+            }
+            
+            .nav-toggle {
+               position: absolute;
+               opacity: 0;
+               width: 0;
+               height: 0;
+               margin: 0;
+               padding: 0;
+               border: 0;
+            }
+
+            .bar {
+               display: block;
+               width: 25px;
+               height: 3px;
+               margin: 5px auto;
+               transition: all 0.3s ease-in-out;
+               background-color: #fff;
+            }
+
+            /* Media Queries */
+            @media (max-width: 768px) {
+               .hamburger {
+                  display: block;
+               }
+
+               .hamburger.active .bar:nth-child(2) {
+                  opacity: 0;
+               }
+
+               .hamburger.active .bar:nth-child(1) {
+                  transform: translateY(8px) rotate(45deg);
+               }
+
+               .hamburger.active .bar:nth-child(3) {
+                  transform: translateY(-8px) rotate(-45deg);
+               }
+
+               .nav-menu {
+                  position: fixed;
+                  left: -100%;
+                  top: 60px;
+                  gap: 0;
+                  flex-direction: column;
+                  background-color: rgba(0, 0, 0, 0.95);
+                  width: 100%;
+                  text-align: center;
+                  transition: 0.3s;
+                  padding: 20px 0;
+                  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+               }
+
+               .nav-menu.active {
+                  left: 0;
+               }
+
+               .nav-item {
+                  margin: 10px 0;
+               }
+
+               .nav-link {
+                  padding: 1rem 2rem;
+                  justify-content: center;
+               }
+
+               .nav-link i {
+                  margin-right: 10px;
+               }
+            }
+
+            @media (min-width: 769px) {
+               .nav-menu {
+                  display: flex !important;
+               }
+            }
+         </style>
+
+         <script>
+            // Mobile menu toggle
+            document.addEventListener('DOMContentLoaded', function() {
+               const hamburger = document.querySelector('.hamburger');
+               const navMenu = document.querySelector('.nav-menu');
+               const navLinks = document.querySelectorAll('.nav-link');
+
+               // Toggle mobile menu
+               hamburger.addEventListener('click', function() {
+                  hamburger.classList.toggle('active');
+                  navMenu.classList.toggle('active');
+               });
+
+               // Close mobile menu when clicking a link
+               navLinks.forEach(link => {
+                  link.addEventListener('click', () => {
+                     hamburger.classList.remove('active');
+                     navMenu.classList.remove('active');
+                     
+                     // Update active state
+                     navLinks.forEach(item => item.classList.remove('active'));
+                     link.classList.add('active');
+                  });
+               });
+
+               // Update active link on scroll
+               window.addEventListener('scroll', function() {
+                  const scrollPosition = window.scrollY;
+                  
+                  document.querySelectorAll('section[id]').forEach(section => {
+                     // Skip the profile section since we removed its tab
+                     if (section.id === 'profile') return;
+                     
+                     const sectionTop = section.offsetTop - 100;
+                     const sectionHeight = section.offsetHeight;
+                     const sectionId = section.getAttribute('id');
+                     
+                     if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                           link.classList.remove('active');
+                           if (link.getAttribute('href') === `#${sectionId}`) {
+                              link.classList.add('active');
+                           }
+                        });
+                     }
+                  });
+               });
+            });
+         </script>
          <section id="resume">
             <div class="timeline-section">
                <div class="main-wrapper-resume">
@@ -706,11 +1265,7 @@
                      <div class="container no-padding">
                         <div class="row no-margin">
                            <div class="col-md-6 no-padding bg-color-left">
-                              <div class="left-name bg-color-1">
-                                 <h2>HOANG<span class="text-color">VU</span></h2>
-                                 <h5>Software Developer & Network Engineer</h5>
-                              </div>
-                              <div class="left-address">
+                              <div class="left-address" style="padding-top: 20px;">
                                  <ul>
                                     <li><span class="text-color">Phone</span>(647) 540-7166</li>
                                     <li><span class="text-color">Email</span>andrewvu270@gmail.com</li>
@@ -853,436 +1408,46 @@
                               </div>
                            </div>
                            <div class="col-md-6 no-padding bg-color-right">
-                              <div class="top-skills">
-                                 <div class="skill-name">
-                                    <div class="sn">Java</div>
-                                    <ul>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                    </ul>
-                                 </div>
-                                 <div class="skill-name">
-                                    <div class="sn">J2EE</div>
-                                    <ul>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                    </ul>
-                                 </div>
-                                 <div class="skill-name">
-                                    <div class="sn">C#</div>
-                                    <ul>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                    </ul>
-                                 </div>
-                                 <div class="skill-name">
-                                    <div class="sn">C</div>
-                                    <ul>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                    </ul>
-                                 </div>
-                              </div>
-                              <div class="top-skills">
-                                 <div class="skill-name">
-                                    <div class="sn">PY</div>
-                                    <ul>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                    </ul>
-                                 </div>
-                                 <div class="skill-name">
-                                    <div class="sn">JS</div>
-                                    <ul>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                    </ul>
-                                 </div>
-                                 <div class="skill-name">
-                                    <div class="sn">SQL</div>
-                                    <ul>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                    </ul>
-                                 </div>
-                                 <div class="skill-name">
-                                    <div class="sn">JSON</div>
-                                    <ul>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                    </ul>
-                                 </div>
-                                 <!-- <div class="skill-name">
-                                    <div class="sn">PHP</div>
-                                    <ul>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                       <li></li>
-                                    </ul>
-                                 </div> -->
-                              </div>
                               <div class="right-skills">
-                                 <div class="row no-margin">
-                                    <div class="col-md-12 heading-skills no-padding">
-                                       <br>
-                                       <h3>TOOLS</h3>
-                                       <h6 style="color: white;">Intellij, Visual Studio, Visual Studio Code, Android Studio, MongoDB, MySQL, Git BASH, Github, Unity </h6>
-                                    </div>
+                                 <div class="heading-skills">
+                                    <h3>EDUCATION</h3>
                                  </div>
-                           
-                                 <div class="row no-margin">
-                                    <div class="col-md-12 heading-skills no-padding">
-                                       <br><br>
-                                       <h3>MY SKILLS</h3>
-                                    </div>
+                                 <div class="ex-box">
+                                    <h2>Sep 2024 - Apr 2026</h2>
+                                    <h4>York University, Toronto, ON</h4>
+                                    <p>• Honours Bachelor of Science in Computer Science</p>
                                  </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>Full-stack</h4>
-                                    </div>
-                                    <!-- <div class="col-md-7 no-padding">
-                           <div class="progress">
-                              <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                 <div class="ex-box">
+                                    <h2>Sep 2020 - Dec 2023</h2>
+                                    <h4>Sheridan College, Oakville, ON</h4>
+                                    <p>• Advanced Diploma in Computer Systems Technology - Software Development and Network Engineering</p>
+                                 </div>
+                                 <div class="heading-skills">
+                                    <h3>EXPERIENCES</h3>
+                                 </div>
+                                 <div class="ex-box">
+                                    <h2>May 2023 – Aug 2023</h2>
+                                    <h4>Software Developer, SIRT Centre</h4>
+                                    <p>• Implemented meta human selection menu and UI flow for multiplayer sessions, improving user engagement by 25%</p>
+                                    <p>• Identified and resolved C++ bugs, enhancing stability and reducing crash rates for 20+ active users</p>
+                                    <p>• Tools: Unreal Engine 5, C++, Bitbucket</p>
+                                 </div>
+                                 <div class="ex-box">
+                                    <h2>May 2022 – Dec 2022</h2>
+                                    <h4>AR/MR Software Developer, CloudDX</h4>
+                                    <p>• Developed voice commands and interactive features for HoloLens2, showcased at ANA Avatar XPRIZE 2022 with over 50 successful demonstrations</p>
+                                    <p>• Conducted testing, debugging, and optimizing C++/C# code and Arduino–HoloLens communication, reducing processing latency by 30%</p>
+                                    <p>• Tools: HoloLens 2, Unity, Arduino, C++, C#, Bitbucket</p>
+                                 </div>
+                                 <div class="ex-box">
+                                    <h2>Jan 2022 – Apr 2022</h2>
+                                    <h4>VR Software Developer, Medtech Canada, Unity Health Toronto</h4>
+                                    <p>• Replaced deprecated components and integrated new interaction features, resulting in 40% faster scene load times</p>
+                                    <p>• Rapidly resolved a critical rendering bug within 2 days, restoring accurate motion tracking and eliminating all hand-tracking glitches for 10+ testers</p>
+                                    <p>• Tools: Meta Quest 2, Unity, C#, Github</p>
+                                 </div>
                               </div>
                            </div>
-                        </div> -->
-                                 </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>Spring</h4>
-                                    </div>
-
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>Django</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>ASP.NET Core</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>MERN Stack</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <!-- <div class="row no-margin mt-25">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>API</h4>
-                                    </div> -->
-                                    <!-- <div class="col-md-7 no-padding">
-                           <div class="progress">
-                              <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                              </div>
-                           </div>
-                        </div> -->
-                                 <!-- </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>REST</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>Stripe payment</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>IEX Cloud Stock</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div> -->
-                                 <div class="row no-margin mt-25">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>Game</h4>
-                                    </div>
-                                    <!-- <div class="col-md-7 no-padding">
-                           <div class="progress">
-                              <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                              </div>
-                           </div>
-                        </div> -->
-                                 </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>Unity & C# VR</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <!-- <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>Unity & C# Mobile</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div> -->
-                                 <!-- <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>Unreal Engine 5 & C++</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div> -->
-                                 <div class="row no-margin mt-25">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>Bots</h4>
-                                    </div>
-                                    <!-- <div class="col-md-7 no-padding">
-                           <div class="progress">
-                              <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                              </div>
-                           </div>
-                        </div> -->
-                                 </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>Discord bots</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row no-margin mt-25">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>UX/UI</h4>
-                                    </div>
-                                    <!-- <div class="col-md-7 no-padding">
-                           <div class="progress">
-                              <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                              </div>
-                           </div>
-                        </div> -->
-                                 </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>CSS & Bootstrap</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="row no-margin">
-                                    <div class="col-md-5 no-padding">
-                                       <h4>JavaFX</h4>
-                                    </div>
-                                    <div class="col-md-7 no-padding">
-                                       <div class="progress">
-                                          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar"
-                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                             style="width: 60%">
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-
-                                 <div class="row no-margin mt-25">
-                                    <div class="col-md-12 heading-skills no-padding">
-                                       <br><br>
-                                       <h3>INTERESTS</h3>
-                                    </div>
-                                    <div class="col-md-4 intetst-box">
-                                       <div class="intetst-icons">
-                                          <i class="fa fa-bug" aria-hidden="true"></i>
-                                          <br><br>
-                                          <h5>CODING</h5>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-4 intetst-box">
-                                       <div class="intetst-icons">
-                                          <i class="fa fa-headset" aria-hidden="true"></i>
-                                          <br><br>
-                                          <h5>GAMING</h5>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-4 intetst-box">
-                                       <div class="intetst-icons">
-                                          <i class="fa fa-dumbbell" aria-hidden="true"></i>
-                                          <br><br>
-                                          <h5>WORKOUT</h5>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-4 intetst-box">
-                                       <div class="intetst-icons">
-                                          <i class="fa fa-futbol" aria-hidden="true"></i>
-                                          <br><br>
-                                          <h5>SOCCER</h5>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-4 intetst-box">
-                                       <div class="intetst-icons">
-                                          <i class="fa fa-chess" aria-hidden="true"></i>
-                                          <br><br>
-                                          <h5>CHESS</h5>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-4 intetst-box">
-                                       <div class="intetst-icons">
-                                          <i class="fa fa-book-open" aria-hidden="true"></i>
-                                          <br><br>
-                                          <h5>MANGA</h5>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="eduction-right">
-                                 <div class="row no-margin">
-                                    <div class="col-md-12 heading-skills no-padding">
-                                       <br><br>
-                                       <h3>EDUCATION</h3>
-                                       <div class="ex-box">
-                                          <h2>Sep 2024 – Apr 2026</h2>
-                                          <h4>York University, Toronto, ON</h4>
-                                          <p>Honours Bachelor of Science in Computer Science</p>
-                                       </div>
-                                       <div class="ex-box">
-                                          <h2>Sep 2020 – Dec 2023</h2>
-                                          <h4>Sheridan College, Oakville, ON</h4>
-                                          <p>Advanced Diploma in Software Development and Network Engineering</p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-12 heading-skills no-padding">
-                                       <br><br><br>
-                                       <h3>EXPERIENCES</h3>
-                                       <div class="ex-box">
-                                          <h2>May 2023 – Aug 2023</h2>
-                                          <h4>Software Developer, SIRT Centre</h4>
-                                          <p>• Implemented meta human selection menu and UI flow for multiplayer sessions, improving user engagement by 25%</p>
-                                          <p>• Identified and resolved C++ bugs, enhancing stability and reducing crash rates for 20+ active users</p>
-                                          <p>• Tools: Unreal Engine 5, C++, Bitbucket</p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-12 heading-skills no-padding">
-                                       <div class="ex-box">
-                                          <h2>May 2022 – Dec 2022</h2>
-                                          <h4>AR/MR Software Developer, CloudDX</h4>
-                                          <p>• Developed voice commands and interactive features for HoloLens2, showcased at ANA Avatar XPRIZE 2022 with over 50 successful demonstrations</p>
-                                          <p>• Conducted testing, debugging, and optimizing C++/C# code and Arduino–HoloLens communication, reducing processing latency by 30%</p>
-                                          <p>• Tools: HoloLens 2, Unity, Arduino, C++, C#, Bitbucket</p>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-12 heading-skills no-padding">
-                                       <div class="ex-box">
-                                          <h2>Jan 2022 – Apr 2022</h2>
-                                          <h4>VR Software Developer, Medtech Canada, Unity Health Toronto</h4>
-                                          <p>• Replaced deprecated components and integrated new interaction features, resulting in 40% faster scene load times</p>
-                                          <p>• Rapidly resolved a critical rendering bug within 2 days, restoring accurate motion tracking and eliminating all hand-tracking glitches for 10+ testers</p>
-                                          <p>• Tools: Meta Quest 2, Unity, C#, Github</p>
-                                       </div>
-                                    </div>
-                                 </div>
                               </div>
                               <!-- <div class="address-qr-right">
                      <div class="row no-margin">
@@ -1314,8 +1479,11 @@
                            </div>
                         </div>
                      </div>
+                        </div>
+                     </div>
                   </div>
                </div>
+            </div>
          </section><!-- /Resume -->
          <section id="portfolio">
             <ul class="cats-filter" id="portfolio-filter">
