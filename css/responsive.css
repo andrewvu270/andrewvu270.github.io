@@ -1,7 +1,29 @@
 /* Base responsive styles */
-img, iframe {
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+img, iframe, video {
     max-width: 100%;
     height: auto;
+    border: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /* Navigation */
@@ -202,6 +224,39 @@ img, iframe {
 }
 
 /* Small devices (phones, 600px and down) */
+@media (max-width: 767px) {
+    body {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .ex-box {
+        margin-bottom: 15px;
+        padding: 15px;
+    }
+    
+    .ex-box h2 {
+        font-size: 14px;
+        padding: 2px 10px;
+    }
+    
+    .ex-box h4 {
+        font-size: 16px;
+        margin: 5px 0;
+    }
+    
+    .ex-box p {
+        font-size: 14px;
+        margin: 5px 0;
+    }
+}
+
+/* Small devices (phones, 600px and down) */
 @media (max-width: 600px) {
     .left-name h2 {
         font-size: 2em;
@@ -241,7 +296,63 @@ img, iframe {
 }
 
 /* Very small devices */
-@media (max-width: 400px) {
+@media (max-width: 480px) {
+    .left-name h2 {
+        font-size: 24px !important;
+        line-height: 1.2;
+    }
+    
+    .left-name h5 {
+        font-size: 16px;
+    }
+    
+    .ex-heading h2 {
+        font-size: 18px !important;
+        padding: 5px 10px !important;
+    }
+    
+    .ex-box {
+        padding: 12px !important;
+    }
+    
+    .ex-box h2 {
+        font-size: 12px !important;
+        padding: 2px 8px !important;
+    }
+    
+    .ex-box h4 {
+        font-size: 15px !important;
+        margin: 3px 0;
+    }
+    
+    .ex-box p {
+        font-size: 13px !important;
+        line-height: 1.4;
+    }
+    
+    .sn {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 14px !important;
+        line-height: 36px !important;
+        padding: 0 !important;
+    }
+}
+
+/* iPhone specific fixes */
+@supports (-webkit-touch-callout: none) {
+    /* Fix for iOS text size adjust */
+    body {
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    /* Fix for sticky hover on iOS */
+    @media (hover: none) {
+        a:hover, button:hover {
+            opacity: 1;
+        }
+    }
+}
     .left-name h2 {
         font-size: 1.5em;
     }
@@ -273,7 +384,7 @@ img, iframe {
         font-size: 1em;
         padding-top: 8px;
     }
-}
+
 
 /* Print styles */
 @media print {
