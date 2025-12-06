@@ -54,7 +54,7 @@
          -webkit-font-smoothing: antialiased;
          overflow-x: hidden;
       }
-      
+
       /* Ensure all sections use hero background */
       .gallery-section,
       .resume-section,
@@ -96,7 +96,7 @@
          overflow: hidden;
       }
 
-      
+
 
 
       .hero-badge {
@@ -142,7 +142,7 @@
          color: var(--black);
       }
 
-      
+
       .hero-content {
          display: flex;
          align-items: center;
@@ -456,6 +456,99 @@
          width: 100%;
          border-radius: 20px;
          margin-bottom: 60px;
+      }
+
+      /* Video player styling */
+      .modal-video {
+         width: 100%;
+         border-radius: 20px;
+         margin-bottom: 60px;
+         background: #000;
+      }
+
+      /* Video Carousel */
+      .modal-media-carousel {
+         position: relative;
+         width: 100%;
+         margin-bottom: 60px;
+      }
+
+      .carousel-item {
+         display: none;
+         width: 100%;
+      }
+
+      .carousel-item.active {
+         display: block;
+      }
+
+      .carousel-item video {
+         width: 100%;
+         border-radius: 20px;
+         background: #000;
+      }
+
+      .carousel-arrows {
+         position: absolute;
+         top: 50%;
+         transform: translateY(-50%);
+         width: 100%;
+         display: flex;
+         justify-content: space-between;
+         padding: 0 20px;
+         pointer-events: none;
+         z-index: 10;
+      }
+
+      .carousel-arrow {
+         width: 50px;
+         height: 50px;
+         border-radius: 50%;
+         background: rgba(255, 255, 255, 0.9);
+         border: 1px solid var(--gray-300);
+         color: var(--gray-800);
+         font-size: 20px;
+         cursor: pointer;
+         pointer-events: all;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         transition: all 0.2s;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .carousel-arrow:hover {
+         background: rgba(255, 255, 255, 1);
+         transform: scale(1.1);
+         box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .carousel-arrow:disabled {
+         opacity: 0.3;
+         cursor: not-allowed;
+      }
+
+      .carousel-indicators {
+         display: flex;
+         gap: 10px;
+         justify-content: center;
+         margin-top: 20px;
+         margin-bottom: 40px;
+      }
+
+      .carousel-indicator {
+         width: 10px;
+         height: 10px;
+         border-radius: 50%;
+         background: var(--gray-400);
+         cursor: pointer;
+         transition: all 0.3s;
+      }
+
+      .carousel-indicator.active {
+         background: var(--black);
+         width: 30px;
+         border-radius: 5px;
       }
 
       .modal-info {
@@ -1034,7 +1127,7 @@
             </div>
 
             <!-- Discord Bots -->
-            <div class="project-card" onclick="openProject(8)">
+            <div class="project-card" onclick="openProject(6)">
                <img src="images/db-thumb.jpg" alt="Discord Bots">
                <div class="overlay"></div>
                <div class="info">
@@ -1171,6 +1264,12 @@
          {
             title: "MindForge",
             image: "images/mf-bg.png",
+            videos: [  // Multiple videos for carousel
+               "videos/mf1.mp4",
+               "videos/mf2.mp4",
+               "videos/mf3.mp4",
+               "videos/mf4.mp4"
+            ], // Add video path here: "videos/mindforge-demo.mp4"
             description: "Micro-learning platform with short lessons on tech, finance, and world events. Swipe through like TikTok. Actually remember what you learn. Get smarter in 5 minutes a day!",
             tech: ["FastAPI", "React", "TypeScript", "Supabase", "OpenAI", "Groq", "Hugging Face"],
             github: "https://github.com/andrewvu270/mindForge/",
@@ -1179,6 +1278,7 @@
          {
             title: "Academic Scheduler",
             image: "images/aca.png",
+            video: null,
             description: "An intelligent academic planning system that helps students optimize their study schedules by extracting deadlines from syllabi, predicting workload, and generating optimized daily study plans using machine learning",
             tech: ["FastAPI", "React", "TypeScript", "Supabase", "ERNIE", "PaddlePaddle", "Google Cloud"],
             github: "https://github.com/andrewvu270/AI-Academic-Scheduler",
@@ -1187,6 +1287,12 @@
          {
             title: "Lucid Souls",
             image: "images/lucid.jpg",
+            videos: [  // Multiple videos for carousel
+               "videos/lc1.mp4",
+               "videos/lc2.mp4",
+               "videos/lc3.mp4",
+               "videos/lc4.mp4"
+            ],
             description: "Immersive lucid dreaming simulation exploring psychological dream awareness. Features multi-level lucidity progression from sub-lucid to fully lucid states with dynamic perspective changing and real-time object manipulation.",
             tech: ["C++", "Unreal Engine 5", "Mixamo"],
             github: "https://github.com/andrewvu270/LucidSouls",
@@ -1195,6 +1301,7 @@
          {
             title: "VUChess",
             image: "images/chess.jpg",
+            video: null,
             description: "Online multiplayer chess web game with real-time gameplay using WebSocket connections. Players can compete in live matches with smooth piece animations.",
             tech: ["Redis", "Node.js", "Express.js", "Socket.IO"],
             github: "https://github.com/andrewvu270/VUChess"
@@ -1202,6 +1309,7 @@
          {
             title: "Hollow Knight",
             image: "images/hk.jpg",
+            video: null,
             description: "Open world RPG where players move and use skills to attack enemies and boss battles to clear stages. Features combat system with enemy AI.",
             tech: ["Unity", "C#"],
             github: "https://github.com/andrewvu270/Hollow-Knight"
@@ -1209,6 +1317,7 @@
          {
             title: "Wildwest VR Shooter",
             image: "images/vr.jpg",
+            video: null,
             description: "Western theme VR FPS game with XR Origin action-based controller. Players move, teleport, and score by shooting objectives precisely under time pressure.",
             tech: ["Unity", "C#", "XR Origin", "Oculus Quest 2"],
             github: "https://github.com/andrewvu270/Western-shooter-VR"
@@ -1216,6 +1325,7 @@
          {
             title: "Discord Bots",
             image: "images/db.jpg",
+            video: null, // Example: "videos/discord-bot-demo.mp4"
             description: "Collection of Python bots: reaction bot, server moderation, poll bot, music bot, and gaming bots (rock paper scissor, battleships). Migrated from discord.py to nextcord.",
             tech: ["Python", "Discord API", "Nextcord", "Async Programming"],
             github: "https://github.com/andrewvu270/Discord-bots"
@@ -1254,13 +1364,64 @@
       });
 
       // Project Modal
+      let currentVideoIndex = 0;
+      let currentProject = null;
+
       function openProject(index) {
          const project = projects[index];
+         currentProject = project;
+         currentVideoIndex = 0;
          const modal = document.getElementById('projectModal');
          const content = document.getElementById('modalContent');
 
+         // Check if project has multiple videos (array)
+         const hasMultipleVideos = Array.isArray(project.videos) && project.videos.length > 0;
+         const hasSingleVideo = project.video && !hasMultipleVideos;
+
+         let mediaHTML = '';
+
+         if (hasMultipleVideos) {
+            // Multiple videos - show carousel
+            mediaHTML = `
+               <div class="modal-media-carousel">
+                  ${project.videos.map((videoSrc, idx) => `
+                     <div class="carousel-item ${idx === 0 ? 'active' : ''}">
+                        <video autoplay loop muted playsinline>
+                           <source src="${videoSrc}" type="video/mp4">
+                           Your browser does not support the video tag.
+                        </video>
+                     </div>
+                  `).join('')}
+                  <div class="carousel-arrows">
+                     <button class="carousel-arrow" onclick="changeVideo(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                     </button>
+                     <button class="carousel-arrow" onclick="changeVideo(1)">
+                        <i class="fas fa-chevron-right"></i>
+                     </button>
+                  </div>
+               </div>
+               <div class="carousel-indicators">
+                  ${project.videos.map((_, idx) => `
+                     <span class="carousel-indicator ${idx === 0 ? 'active' : ''}" onclick="goToVideo(${idx})"></span>
+                  `).join('')}
+               </div>
+            `;
+         } else if (hasSingleVideo) {
+            // Single video
+            mediaHTML = `
+               <video class="modal-video" autoplay loop muted playsinline>
+                  <source src="${project.video}" type="video/mp4">
+                  Your browser does not support the video tag.
+               </video>
+            `;
+         } else {
+            // Fallback to image
+            mediaHTML = `<img src="${project.image}" alt="${project.title}" class="modal-image">`;
+         }
+
          content.innerHTML = `
-                <img src="${project.image}" alt="${project.title}" class="modal-image">
+                ${mediaHTML}
                 <div class="modal-info">
                     <div>
                         <h2>${project.title}</h2>
@@ -1284,7 +1445,7 @@
             `;
 
          modal.classList.add('active');
-         
+
          // Scroll modal to center
          setTimeout(() => {
             const modalContent = document.querySelector('.modal-content');
@@ -1292,6 +1453,41 @@
                modalContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
          }, 100);
+      }
+
+      function changeVideo(direction) {
+         if (!currentProject || !currentProject.videos) return;
+
+         const totalVideos = currentProject.videos.length;
+         currentVideoIndex = (currentVideoIndex + direction + totalVideos) % totalVideos;
+         updateCarousel();
+      }
+
+      function goToVideo(index) {
+         currentVideoIndex = index;
+         updateCarousel();
+      }
+
+      function updateCarousel() {
+         const items = document.querySelectorAll('.carousel-item');
+         const indicators = document.querySelectorAll('.carousel-indicator');
+
+         items.forEach((item, idx) => {
+            item.classList.toggle('active', idx === currentVideoIndex);
+            // Pause non-active videos
+            const video = item.querySelector('video');
+            if (video) {
+               if (idx === currentVideoIndex) {
+                  video.play();
+               } else {
+                  video.pause();
+               }
+            }
+         });
+
+         indicators.forEach((indicator, idx) => {
+            indicator.classList.toggle('active', idx === currentVideoIndex);
+         });
       }
 
       function closeProject() {
