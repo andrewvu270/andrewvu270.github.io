@@ -1039,6 +1039,21 @@
 
       <div class="gallery-container" id="galleryContainer">
          <div class="gallery-track">
+
+            <!-- Remi -->
+            <div class="project-card" onclick="openProject(1)">
+               <img src="images/aca-thumb.png" alt="Remi">
+               <div class="overlay"></div>
+               <div class="info">
+                  <h3>REMI</h3>
+                  <p>Remi the reminder monster will schedule and remind you of your study sessions</p>
+                  <div class="project-tags">
+                     <span class="tag">ERNIE</span>
+                     <span class="tag">PaddlePaddle</span>
+                  </div>
+               </div>
+            </div>
+
             <!-- MindForge -->
             <div class="project-card" onclick="openProject(0)">
                <img src="images/mf.png" alt="MindForge">
@@ -1050,20 +1065,6 @@
                      <span class="tag">AI</span>
                      <span class="tag">FastAPI</span>
                      <span class="tag">React</span>
-                  </div>
-               </div>
-            </div>
-
-            <!-- Academic Scheduler -->
-            <div class="project-card" onclick="openProject(1)">
-               <img src="images/aca-thumb.png" alt="Academic Scheduler">
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>Academic Scheduler</h3>
-                  <p>AI scheduler reducing deadline clustering by 40%</p>
-                  <div class="project-tags">
-                     <span class="tag">ERNIE</span>
-                     <span class="tag">PaddlePaddle</span>
                   </div>
                </div>
             </div>
@@ -1260,6 +1261,21 @@
       // Project Data
       const projects = [
          {
+            title: "Remi",
+            image: "images/aca.png",
+            videos: [  // Multiple videos for carousel
+               "videos/rm1.mp4",
+               "videos/rm2.mp4",
+               "videos/rm3.mp4",
+               "videos/rm4.mp4",
+               "videos/rm5.mp4"
+            ],
+            description: "Remi is an AI-powered productivity assistant that optimizes your academic life. It uses multi-agent AI to extract tasks from syllabi, predict detailed workload metrics, and generate balanced schedules that prevent burnout",
+            tech: ["FastAPI", "React", "TypeScript", "Supabase", "ERNIE", "PaddlePaddle", "Google Cloud"],
+            github: "https://github.com/andrewvu270/AI-Academic-Scheduler",
+            live: "https://remischeduler.vercel.app/"
+         },
+         {
             title: "MindForge",
             image: "images/mf-bg.png",
             videos: [  // Multiple videos for carousel
@@ -1267,20 +1283,11 @@
                "videos/mf2.mp4",
                "videos/mf3.mp4",
                "videos/mf4.mp4"
-            ], // Add video path here: "videos/mindforge-demo.mp4"
+            ],
             description: "Micro-learning platform with short lessons on tech, finance, and world events. Swipe through like TikTok. Actually remember what you learn. Get smarter in 5 minutes a day!",
             tech: ["FastAPI", "React", "TypeScript", "Supabase", "OpenAI", "Groq", "Hugging Face"],
             github: "https://github.com/andrewvu270/mindForge/",
             live: "https://mindforger.vercel.app/"
-         },
-         {
-            title: "Academic Scheduler",
-            image: "images/aca.png",
-            video: null,
-            description: "An intelligent academic planning system that helps students optimize their study schedules by extracting deadlines from syllabi, predicting workload, and generating optimized daily study plans using machine learning",
-            tech: ["FastAPI", "React", "TypeScript", "Supabase", "ERNIE", "PaddlePaddle", "Google Cloud"],
-            github: "https://github.com/andrewvu270/AI-Academic-Scheduler",
-            live: "https://academic-scheduler.andrewvu270.workers.dev/"
          },
          {
             title: "Lucid Souls",
