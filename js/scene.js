@@ -161,7 +161,7 @@ class SceneManager {
     const far = 1000;
 
     this.camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-    this.camera.position.set(0, 5, 11);
+    this.camera.position.set(0, 5, 13.5);
     this.camera.lookAt(0, 0, 0);
   }
 
