@@ -11,6 +11,17 @@
       rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
+   <!-- Three.js with ES Modules -->
+   <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+   <script type="importmap">
+   {
+       "imports": {
+           "three": "https://unpkg.com/three@0.148.0/build/three.module.js",
+           "three/addons/": "https://unpkg.com/three@0.148.0/examples/jsm/"
+       }
+   }
+   </script>
+
    <!-- Magnific Popup CSS -->
    <link rel="stylesheet" href="css/magnific-popup.css">
 
@@ -92,9 +103,27 @@
          flex-direction: column;
          justify-content: center;
          align-items: center;
-         padding: 40px 60px 80px;
+         padding: 80px 60px 80px;
          position: relative;
-         overflow: hidden;
+         overflow: visible;
+      }
+
+      /* 3D Canvas Container - Right side only */
+      .hero-3d-container {
+         position: absolute;
+         top: 50%;
+         right: 50%;
+         transform: translate(550px, -50%);
+         width: 600px;
+         height: 600px;
+         z-index: 1;
+         pointer-events: auto;
+      }
+
+      .hero-3d-container canvas {
+         display: block;
+         width: 100%;
+         height: 100%;
       }
 
       .hero-badge {
@@ -132,7 +161,7 @@
       }
 
       .hero h1 {
-         font-size: 70px;
+         font-size: 48px;
          font-weight: 600;
          letter-spacing: -1.5px;
          line-height: 1.1;
@@ -142,23 +171,30 @@
 
 
       .hero-content {
-         display: flex;
-         align-items: center;
-         justify-content: space-between;
-         gap: 80px;
          max-width: 1200px;
+         margin: -100px auto 0;
+         width: 100%;
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         align-items: center;
+         gap: 150px;
          position: relative;
-         z-index: 1;
+         z-index: 2;
+         pointer-events: none;
       }
 
       .hero-text-left {
-         flex: 1;
          max-width: 500px;
+         text-align: left;
+         pointer-events: auto;
+         flex: 0 0 auto;
       }
 
-      .hero-headline-right {
-         flex: 1;
-         text-align: right;
+      .hero-3d-spacer {
+         width: 500px;
+         flex: 0 0 auto;
+         pointer-events: none;
       }
 
       .hero-name {
@@ -345,14 +381,16 @@
          transform: scale(1.02);
       }
 
-      .project-card img {
+      .project-card img,
+      .project-card video {
          width: 100%;
          height: 100%;
          object-fit: cover;
          transition: transform 0.4s ease;
       }
 
-      .project-card:hover img {
+      .project-card:hover img,
+      .project-card:hover video {
          transform: scale(1.05);
       }
 
@@ -877,13 +915,24 @@
             gap: 40px;
          }
 
-         .hero-headline-right {
-            text-align: center;
-         }
-
          .hero-text-left {
             text-align: center;
             margin: 0 auto;
+            flex: 1;
+         }
+
+         .hero-3d-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            right: auto;
+            top: auto;
+            transform: none;
+            margin: 0 auto;
+         }
+
+         .hero-3d-spacer {
+            display: none;
          }
 
          .hero-buttons,
@@ -892,7 +941,7 @@
          }
 
          .hero h1 {
-            font-size: 48px;
+            font-size: 36px;
          }
 
          .gallery-header,
@@ -927,7 +976,7 @@
 
       @media (max-width: 640px) {
          .hero h1 {
-            font-size: 36px;
+            font-size: 28px;
          }
 
          .project-card {
@@ -1000,6 +1049,8 @@
             font-size: 32px;
          }
       }
+
+      /* Game UI Styles REMOVED */
    </style>
 </head>
 
@@ -1013,14 +1064,15 @@
 
    <!-- Hero Section -->
    <section class="hero">
+      <!-- 3D Canvas Container -->
+      <div class="hero-3d-container" id="hero3DContainer"></div>
+
       <div class="hero-content">
-         <div class="hero-headline-right">
-            <h1>Building <span class="gradient-text">Digital Experiences</span> That Matter</h1>
-         </div>
          <div class="hero-text-left">
-            <span class="hero-name">Hoang Vu</span>
-            <p>Software Engineer & Game Developer specializing in AI systems, full-stack development, and immersive game
-               worlds.</p>
+            <span class="hero-name">Andrew Hoang Vu</span>
+            <p>Hi I'm Andrew, a Software Engineer & Game Developer specializing in full-stack development and immersive
+               game
+               worlds. I am currently exploring AI systems and how they can interact with the world.</p>
             <div class="hero-buttons">
                <a href="Hoang_Vu_Resume.pdf" target="_blank" class="btn btn-primary">
                   <i class="fas fa-file-pdf"></i>
@@ -1039,6 +1091,7 @@
                </a>
             </div>
          </div>
+         <div class="hero-3d-spacer"></div>
       </div>
    </section>
 
@@ -1055,7 +1108,7 @@
 
             <!-- Remi -->
             <div class="project-card" onclick="openProject(0)">
-               <img src="images/aca-thumb.png" alt="Remi">
+               <video src="videos/rm12a.mp4" autoplay loop muted playsinline class="card-media"></video>
                <div class="overlay"></div>
                <div class="info">
                   <h3>REMI</h3>
@@ -1069,7 +1122,7 @@
 
             <!-- MindForge -->
             <div class="project-card" onclick="openProject(1)">
-               <img src="images/mf.png" alt="MindForge">
+               <video src="videos/mf12.mp4" autoplay loop muted playsinline class="card-media"></video>
                <div class="overlay"></div>
                <div class="info">
                   <h3>MindForge</h3>
@@ -1084,7 +1137,7 @@
 
             <!-- Lucid Souls -->
             <div class="project-card" onclick="openProject(2)">
-               <img src="images/lucid-thumb.jpg" alt="Lucid Souls">
+               <video src="videos/lc2.mp4" autoplay loop muted playsinline class="card-media"></video>
                <div class="overlay"></div>
                <div class="info">
                   <h3>Lucid Souls</h3>
@@ -1270,6 +1323,65 @@
    <!-- JavaScript -->
    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
    <script src="js/jquery.magnific-popup.min.js"></script>
+
+   <script type="module">
+      import * as THREE from 'three';
+      import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+      import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+      // Make THREE global for our existing scripts
+      window.THREE = THREE;
+      window.GLTFLoader = GLTFLoader;
+      window.DRACOLoader = DRACOLoader;
+      window.OrbitControls = OrbitControls;
+
+      // Wait for scripts to load then initialize
+      const initScripts = async () => {
+         // Load our scene scripts
+         await Promise.all([
+            import('./js/lighting.js'),
+            import('./js/modelLoader.js'),
+            import('./js/controls.js'),
+            import('./js/animation.js'),
+            import('./js/responsive.js'),
+            import('./js/scene.js')
+         ]);
+
+         // Initialize 3D scene
+         const container = document.getElementById('hero3DContainer');
+         if (container && typeof window.SceneManager !== 'undefined') {
+            const sceneManager = new window.SceneManager(container);
+            sceneManager.init().then(success => {
+               if (success) {
+                  console.log('3D hero section initialized');
+               } else {
+                  console.log('3D hero section initialization skipped (WebGL not supported)');
+               }
+            }).catch(error => {
+               console.error('Error initializing 3D scene:', error);
+            });
+
+            // Store reference for cleanup
+            window.sceneManager = sceneManager;
+
+            // Cleanup on page unload
+            window.addEventListener('beforeunload', () => {
+               if (window.sceneManager) {
+                  window.sceneManager.dispose();
+               }
+            });
+         }
+      };
+
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+         document.addEventListener('DOMContentLoaded', initScripts);
+      } else {
+         initScripts();
+      }
+   </script>
+
    <script>
       // Project Data
       const projects = [
@@ -1277,7 +1389,7 @@
             title: "Remi",
             image: "images/aca.png",
             videos: [  // Multiple videos for carousel
-               "videos/rm1.mp4",
+               "videos/rm12.mp4",
                "videos/rm2.mp4",
                "videos/rm3.mp4",
                "videos/rm4.mp4",
@@ -1543,6 +1655,13 @@
          if (e.key === 'Escape') {
             closeProject();
             closeResumeModal();
+         }
+      });
+
+      // Initialize game when page loads
+      window.addEventListener('DOMContentLoaded', function () {
+         if (typeof window.initGame === 'function') {
+            window.initGame();
          }
       });
    </script>
