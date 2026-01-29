@@ -1114,8 +1114,10 @@
                   <h3>REMI</h3>
                   <p>Remi the reminder monster will schedule and remind you of your study sessions</p>
                   <div class="project-tags">
-                     <span class="tag">ERNIE</span>
-                     <span class="tag">PaddlePaddle</span>
+                     <span class="tag">LLM</span>
+                     <span class="tag">ML</span>
+                     <span class="tag">FastAPI</span>
+                     <span class="tag">React</span>
                   </div>
                </div>
             </div>
@@ -1128,7 +1130,7 @@
                   <h3>MindForge</h3>
                   <p>AI microlearning platform with 7-agent system</p>
                   <div class="project-tags">
-                     <span class="tag">AI</span>
+                     <span class="tag">LLM</span>
                      <span class="tag">FastAPI</span>
                      <span class="tag">React</span>
                   </div>
@@ -1145,6 +1147,20 @@
                   <div class="project-tags">
                      <span class="tag">UE5</span>
                      <span class="tag">C++</span>
+                  </div>
+               </div>
+            </div>
+
+            <div class="project-card" onclick="openProject(7)">
+               <video src="videos/at1.mp4" autoplay loop muted playsinline class="card-media"></video>
+               <div class="overlay"></div>
+               <div class="info">
+                  <h3>Admittree</h3>
+                  <p>Admittree</p>
+                  <div class="project-tags">
+                     <span class="tag">LLM</span>
+                     <span class="tag">FastAPI</span>
+                     <span class="tag">React</span>
                   </div>
                </div>
             </div>
@@ -1396,7 +1412,7 @@
                "videos/rm5.mp4"
             ],
             description: "Tired of burnouts? Remi your study monster and his team of AI agents will optimize your academic life! It predicts workload and generates balanced study sessions fitting your schedule. Prepared to be reminded by Remi!!!",
-            tech: ["FastAPI", "React", "TypeScript", "Supabase", "ERNIE", "PaddlePaddle", "Google Cloud"],
+            tech: ["FastAPI", "React", "TypeScript", "Supabase", "OpenAI", "PaddlePaddle", "LightGBM", "Google Cloud"],
             github: "https://github.com/andrewvu270/AI-Academic-Scheduler",
             live: "https://remischeduler.vercel.app/"
          },
@@ -1461,7 +1477,22 @@
             description: "Collection of Python bots: reaction bot, server moderation, poll bot, music bot, and gaming bots (rock paper scissor, battleships). Migrated from discord.py to nextcord.",
             tech: ["Python", "Discord API", "Nextcord", "Async Programming"],
             github: "https://github.com/andrewvu270/Discord-bots"
-         }
+         },
+         {
+            title: "Admittree",
+            image: "images/mf-bg.png",
+            videos: [  // Multiple videos for carousel
+               "videos/at1.mp4",
+               "videos/at2.mp4",
+               "videos/at3.mp4",
+               "videos/at4.mp4"
+            ],
+            description: "An AI powered consulting service for high school students to easily apply to post-secondary education in Ontario.",
+            tech: ["Flask", "React", "TypeScript", "MongoDB", "DigitalOcean", "Gemini"],
+            github: "https://github.com/andrewvu270/admit-tree",
+            devpost: "https://devpost.com/software/admittree",
+            demoVideo: "https://www.youtube.com/watch?v=X18knLFN5vo"
+         },
       ];
 
       // Drag to scroll
