@@ -1228,7 +1228,7 @@
 
             <!-- VUChess -->
             <div class="project-card" onclick="openProject(3)">
-               <video src="videos/vc1.mp4" autoplay loop muted playsinline class="card-media"></video>
+               <video src="videos/vc2.mp4" autoplay loop muted playsinline class="card-media"></video>
                <div class="overlay"></div>
                <div class="info">
                   <h3>VUChess</h3>
@@ -1483,7 +1483,10 @@
          {
             title: "VUChess",
             image: "images/chess.jpg",
-            video: "videos/vc2.mp4",
+            videos: [
+               "videos/vc1.mp4",
+               "videos/vc2.mp4"
+            ]
             description: "Online multiplayer chess web game with real-time gameplay using WebSocket connections. Players can compete in live matches with smooth piece animations.",
             tech: ["Redis", "Node.js", "Express.js", "Socket.IO"],
             github: "https://github.com/andrewvu270/VUChess"
