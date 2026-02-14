@@ -1212,6 +1212,20 @@
                </div>
             </div>
 
+            <!-- Hollow Knight -->
+            <div class="project-card" onclick="openProject(4)">
+               <video src="videos/hk3.mp4" autoplay loop muted playsinline class="card-media"></video>
+               <div class="overlay"></div>
+               <div class="info">
+                  <h3>Hollow Knight</h3>
+                  <p>Open world RPG game</p>
+                  <div class="project-tags">
+                     <span class="tag">Unity</span>
+                     <span class="tag">C#</span>
+                  </div>
+               </div>
+            </div>
+
             <!-- VUChess -->
             <div class="project-card" onclick="openProject(3)">
                <video src="videos/vc1.mp4" autoplay loop muted playsinline class="card-media"></video>
@@ -1222,20 +1236,6 @@
                   <div class="project-tags">
                      <span class="tag">Node.js</span>
                      <span class="tag">Socket.IO</span>
-                  </div>
-               </div>
-            </div>
-
-            <!-- Hollow Knight -->
-            <div class="project-card" onclick="openProject(4)">
-               <img src="images/hk-thumb.jpg" alt="Hollow Knight">
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>Hollow Knight</h3>
-                  <p>Open world RPG game</p>
-                  <div class="project-tags">
-                     <span class="tag">Unity</span>
-                     <span class="tag">C#</span>
                   </div>
                </div>
             </div>
@@ -1491,7 +1491,11 @@
          {
             title: "Hollow Knight",
             image: "images/hk.jpg",
-            video: null,
+            video: [
+               "videos/hk1.mp4",
+               "videos/hk2.mp4",
+               "videos/hk3.mp4"
+            ],
             description: "Open world RPG where players move and use skills to attack enemies and boss battles to clear stages. Features combat system with enemy AI.",
             tech: ["Unity", "C#"],
             github: "https://github.com/andrewvu270/Hollow-Knight"
