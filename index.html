@@ -1137,7 +1137,24 @@
                </div>
             </div>
 
+            <!-- Connected -->
+            <div class="project-card" onclick="openProject(8)">
+               <video src="videos/cn1.mp4" autoplay loop muted playsinline class="card-media"></video>
+               <div class="overlay"></div>
+               <div class="info">
+                  <h3>Connected</h3>
+                  <p>From awkward to awesome! Stop dreading conversations. Our AI-powered platform turns you into a
+                     confident communicator through micro-lessons, real practice and smart insights.</p>
+                  <div class="project-tags">
+                     <span class="tag">LLM</span>
+                     <span class="tag">VAPI</span>
+                     <span class="tag">FastAPI</span>
+                     <span class="tag">React</span>
+                  </div>
+               </div>
+            </div>
 
+            <!-- Admittree -->
             <div class="project-card" onclick="openProject(7)">
                <video src="videos/at3.mp4" autoplay loop muted playsinline class="card-media"></video>
                <div class="overlay"></div>
@@ -1429,7 +1446,7 @@
                "videos/rm5.mp4"
             ],
             description: "Tired of burnouts? Remi your study monster and his team of AI agents will optimize your academic life! It predicts workload and generates balanced study sessions fitting your schedule. Prepared to be reminded by Remi!!!",
-            tech: ["FastAPI", "React", "TypeScript", "Supabase", "OpenAI", "PaddlePaddle", "LightGBM", "Google Cloud"],
+            tech: ["FastAPI", "Python", "React", "TypeScript", "Supabase", "OpenAI", "PaddlePaddle", "LightGBM", "Google Cloud"],
             github: "https://github.com/andrewvu270/AI-Academic-Scheduler",
             live: "https://remischeduler.vercel.app/"
          },
@@ -1443,7 +1460,7 @@
                "videos/mf4.mp4"
             ],
             description: "Micro-learning platform with short lessons on tech, finance, and world events. Swipe through like TikTok. Actually remember what you learn. Get smarter in 5 minutes a day!",
-            tech: ["FastAPI", "React", "TypeScript", "Supabase", "OpenAI", "Groq", "Hugging Face"],
+            tech: ["FastAPI", "Python", "React", "TypeScript", "Supabase", "OpenAI", "Groq", "Hugging Face", "Ollama Cloud"],
             github: "https://github.com/andrewvu270/mindForge/",
             live: "https://mindforger.vercel.app/",
             devpost: "https://devpost.com/software/mindforge-b5xtze?ref_content=user-portfolio&ref_feature=in_progress",
@@ -1459,16 +1476,14 @@
                "videos/lc4.mp4"
             ],
             description: "Immersive lucid dreaming simulation exploring psychological dream awareness. Features multi-level lucidity progression from sub-lucid to fully lucid states with dynamic perspective changing and real-time object manipulation.",
-            tech: ["C++", "Unreal Engine 5", "Mixamo"],
+            tech: ["C++", "Unreal Blueprints", "Unreal Engine 5", "Mixamo"],
             github: "https://github.com/andrewvu270/LucidSouls",
             demoVideo: "https://www.youtube.com/watch?v=nw9aCQh9g9Q&t=3s"
          },
          {
             title: "VUChess",
             image: "images/chess.jpg",
-            video: [
-               "videos/vc2.mp4",
-            ],
+            video: "videos/vc2.mp4",
             description: "Online multiplayer chess web game with real-time gameplay using WebSocket connections. Players can compete in live matches with smooth piece animations.",
             tech: ["Redis", "Node.js", "Express.js", "Socket.IO"],
             github: "https://github.com/andrewvu270/VUChess"
@@ -1486,7 +1501,7 @@
             image: "images/vr.jpg",
             video: null,
             description: "Western theme VR FPS game with XR Origin action-based controller. Players move, teleport, and score by shooting objectives precisely under time pressure.",
-            tech: ["Unity", "C#", "XR Origin", "Oculus Quest 2"],
+            tech: ["Unity", "C#", "XR Origin", "Meta Quest 2"],
             github: "https://github.com/andrewvu270/Western-shooter-VR"
          },
          {
@@ -1494,7 +1509,7 @@
             image: "images/db.jpg",
             video: null, // Example: "videos/discord-bot-demo.mp4"
             description: "Collection of Python bots: reaction bot, server moderation, poll bot, music bot, and gaming bots (rock paper scissor, battleships). Migrated from discord.py to nextcord.",
-            tech: ["Python", "Discord API", "Nextcord", "Async Programming"],
+            tech: ["Python", "Discord API", "Nextcord"],
             github: "https://github.com/andrewvu270/Discord-bots"
          },
          {
@@ -1506,12 +1521,20 @@
                "videos/at3.mp4",
                "videos/at4.mp4"
             ],
-            description: "An AI powered consulting service for high school students to easily apply to post-secondary education in Ontario.",
-            tech: ["Flask", "React", "TypeScript", "MongoDB", "DigitalOcean", "Gemini"],
+            description: "An AI powered platform for Canadian high school students to get consulted and visualize their future post-secondary roadmaps.",
+            tech: ["Flask", "Python", "React", "TypeScript", "MongoDB", "DigitalOcean", "Gemini"],
             github: "https://github.com/andrewvu270/admit-tree",
             devpost: "https://devpost.com/software/admittree",
             demoVideo: "https://www.youtube.com/watch?v=X18knLFN5vo"
          },
+         {
+            title: "Connected",
+            image: "images/mf-bg.png",
+            video: "videos/cn2.mp4",
+            description: "From awkward to awesome! Stop dreading conversations. Our AI-powered platform turns you into a confident communicator through micro-lessons, real practice and smart insights.",
+            tech: ["FastAPI", "Python", "React", "TypeScript", "Supabase", "VAPI", "Claude"],
+            github: "https://github.com/andrewvu270/connected"
+         }
       ];
 
       // Drag to scroll
