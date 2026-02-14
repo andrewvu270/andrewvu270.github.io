@@ -1195,7 +1195,7 @@
          </div>
       </div>
 
-      <div class="gallery-container" id="galleryContainer">
+      <div class="gallery-container" id="galleryContainer2">
          <div class="gallery-track">
 
             <!-- Lucid Souls -->
@@ -1538,34 +1538,37 @@
       ];
 
       // Drag to scroll
-      const gallery = document.getElementById('galleryContainer');
-      let isDown = false;
-      let startX;
-      let scrollLeft;
+      const galleries = document.querySelectorAll('.gallery-container');
 
-      gallery.addEventListener('mousedown', (e) => {
-         isDown = true;
-         gallery.classList.add('dragging');
-         startX = e.pageX - gallery.offsetLeft;
-         scrollLeft = gallery.scrollLeft;
-      });
+      galleries.forEach(gallery => {
+         let isDown = false;
+         let startX;
+         let scrollLeft;
 
-      gallery.addEventListener('mouseleave', () => {
-         isDown = false;
-         gallery.classList.remove('dragging');
-      });
+         gallery.addEventListener('mousedown', (e) => {
+            isDown = true;
+            gallery.classList.add('dragging');
+            startX = e.pageX - gallery.offsetLeft;
+            scrollLeft = gallery.scrollLeft;
+         });
 
-      gallery.addEventListener('mouseup', () => {
-         isDown = false;
-         gallery.classList.remove('dragging');
-      });
+         gallery.addEventListener('mouseleave', () => {
+            isDown = false;
+            gallery.classList.remove('dragging');
+         });
 
-      gallery.addEventListener('mousemove', (e) => {
-         if (!isDown) return;
-         e.preventDefault();
-         const x = e.pageX - gallery.offsetLeft;
-         const walk = (x - startX) * 2;
-         gallery.scrollLeft = scrollLeft - walk;
+         gallery.addEventListener('mouseup', () => {
+            isDown = false;
+            gallery.classList.remove('dragging');
+         });
+
+         gallery.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - gallery.offsetLeft;
+            const walk = (x - startX) * 2;
+            gallery.scrollLeft = scrollLeft - walk;
+         });
       });
 
       // Project Modal
