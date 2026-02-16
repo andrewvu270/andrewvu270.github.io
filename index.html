@@ -292,6 +292,7 @@
 
       /* Section Header Styles */
       .section-header {
+         position: relative;
          text-align: center;
          margin-bottom: 80px;
       }
@@ -310,8 +311,51 @@
          font-weight: 500;
          color: var(--gray-800);
          letter-spacing: -0.5px;
-         margin-bottom: 16px;
          line-height: 1.2;
+         margin-bottom: 16px;
+      }
+
+      .gallery-nav {
+         width: 44px;
+         height: 44px;
+         border-radius: 50%;
+         border: none;
+         background: transparent;
+         color: var(--gray-400);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .gallery-nav:hover {
+         color: var(--black);
+      }
+
+      .gallery-nav.prev:hover {
+         transform: translateX(-4px);
+      }
+
+      .gallery-nav.next:hover {
+         transform: translateX(4px);
+      }
+
+      .gallery-nav i {
+         font-size: 16px;
+      }
+
+      .gallery-controls {
+         display: flex;
+         justify-content: flex-end;
+         margin: -40px 0 24px;
+         padding: 0 20px 0 60px;
+      }
+
+      .gallery-nav-group {
+         display: flex;
+         gap: 0px;
+         z-index: 10;
       }
 
       .section-desc {
@@ -644,6 +688,33 @@
          color: var(--white);
       }
 
+      /* Iframe Modal Styles */
+      .project-modal.iframe-mode .modal-content {
+         max-width: 900px;
+         margin: 40px auto;
+         padding: 0;
+         border-radius: 20px;
+         height: 800px;
+         max-height: calc(100vh - 80px);
+         overflow: hidden;
+      }
+
+      .project-modal.iframe-mode .modal-close {
+         background: rgba(255, 255, 255, 0.8);
+         backdrop-filter: blur(4px);
+      }
+
+      .modal-iframe-container {
+         width: 100%;
+         height: 100%;
+      }
+
+      .modal-iframe-container iframe {
+         width: 100%;
+         height: 100%;
+         border: none;
+      }
+
       .modal-links a[href*="youtube"]:hover {
          background: #FF0000;
          color: var(--white);
@@ -716,7 +787,7 @@
          display: grid;
          grid-template-columns: 1fr 1fr;
          gap: 85px;
-         max-width: 1200px;
+         max-width: 900px;
          margin: 0 auto;
       }
 
@@ -730,18 +801,83 @@
       }
 
       .resume-item {
-         padding: 32px;
-         background: rgba(0, 0, 0, 0.02);
-         border-radius: 16px;
-         margin-bottom: 16px;
+         padding: 20px 0;
+         background: transparent;
+         border: none;
+         border-bottom: 1px solid var(--gray-200);
+         border-radius: 0;
+         margin-bottom: 0;
          transition: all 0.3s ease;
-         border: 1px solid var(--gray-300);
+         cursor: pointer;
+         position: relative;
+         overflow: hidden;
+      }
+
+      .resume-item:last-child {
+         border-bottom: none;
       }
 
       .resume-item:hover {
-         border-color: var(--accent);
-         background: rgba(0, 0, 0, 0.03);
-         transform: translateY(-2px);
+         transform: translateX(8px);
+      }
+
+      .resume-item-header {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         gap: 20px;
+      }
+
+      .resume-item-title-group {
+         flex: 1;
+      }
+
+      .resume-item-chevron {
+         color: var(--gray-400);
+         transition: transform 0.4s ease;
+         font-size: 12px;
+      }
+
+      .resume-item.expanded {
+         background: transparent;
+      }
+
+      .resume-item.expanded .resume-item-chevron {
+         transform: rotate(180deg);
+         color: var(--accent);
+      }
+
+      .resume-item-details {
+         max-height: 0;
+         opacity: 0;
+         overflow: hidden;
+         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+         margin-top: 0;
+      }
+
+      .resume-item.expanded .resume-item-details {
+         max-height: 1000px;
+         opacity: 1;
+         margin-top: 16px;
+         padding-bottom: 8px;
+      }
+
+      /* Resume 3D Container */
+      .resume-3d-container {
+         width: 100%;
+         height: 500px;
+         margin-top: 40px;
+         position: sticky;
+         top: 100px;
+      }
+
+      @media (max-width: 968px) {
+         .resume-3d-container {
+            height: 300px;
+            margin-top: 20px;
+            position: relative;
+            top: 0;
+         }
       }
 
       .resume-item .date {
@@ -1101,6 +1237,16 @@
          <div class="section-header">
             <h2 class="section-title">Featured Projects</h2>
          </div>
+         <div class="gallery-controls">
+            <div class="gallery-nav-group">
+               <button class="gallery-nav prev" onclick="scrollGallery('galleryContainer', -1)">
+                  <i class="fas fa-chevron-left"></i>
+               </button>
+               <button class="gallery-nav next" onclick="scrollGallery('galleryContainer', 1)">
+                  <i class="fas fa-chevron-right"></i>
+               </button>
+            </div>
+         </div>
       </div>
 
       <div class="gallery-container" id="galleryContainer">
@@ -1193,10 +1339,34 @@
          <div class="section-header">
             <h2 class="section-title">Featured Games</h2>
          </div>
+         <div class="gallery-controls">
+            <div class="gallery-nav-group">
+               <button class="gallery-nav prev" onclick="scrollGallery('galleryContainer2', -1)">
+                  <i class="fas fa-chevron-left"></i>
+               </button>
+               <button class="gallery-nav next" onclick="scrollGallery('galleryContainer2', 1)">
+                  <i class="fas fa-chevron-right"></i>
+               </button>
+            </div>
+         </div>
       </div>
 
       <div class="gallery-container" id="galleryContainer2">
          <div class="gallery-track">
+
+            <!-- Claw Machine -->
+            <div class="project-card" onclick="openProject(9)">
+               <video src="videos/cm.mp4" autoplay loop muted playsinline class="card-media"></video>
+               <div class="overlay"></div>
+               <div class="info">
+                  <h3>Claw Machine</h3>
+                  <p>Interactive pixel-art claw machine</p>
+                  <div class="project-tags">
+                     <span class="tag">HTML/CSS</span>
+                     <span class="tag">JS</span>
+                  </div>
+               </div>
+            </div>
 
             <!-- Lucid Souls -->
             <div class="project-card" onclick="openProject(2)">
@@ -1272,53 +1442,99 @@
             <h3>Work</h3>
 
             <div class="resume-item">
-               <span class="date">May 2023 – Aug 2023</span>
-               <h4>Software Developer, SIRT Centre</h4>
-               <p>• Designed and implemented multiplayer menu system in C++ featuring character selection, persistent
-                  profile management and real-time session initialization for 4+ concurrent players</p>
-               <p>• Decreased crash frequency by resolving 5+ memory leaks and race conditions, using systematic
-                  debugging, thread-safety analysis, and unit tests</p>
+               <div class="resume-item-header">
+                  <div class="resume-item-title-group">
+                     <span class="date">May 2023 – Aug 2023</span>
+                     <h4>Software Developer, SIRT Centre</h4>
+                  </div>
+                  <i class="fas fa-chevron-down resume-item-chevron"></i>
+               </div>
+               <div class="resume-item-details">
+                  <p>• Designed and implemented multiplayer menu system in C++ featuring character selection, persistent
+                     profile management and real-time session initialization for <b>10+ concurrent players</b></p>
+                  <p>• Decreased crash frequency by resolving race conditions using systematic debugging, thread-safety
+                     analysis, and unit
+                     tests</p>
+               </div>
             </div>
 
             <div class="resume-item">
-               <span class="date">May 2022 – Dec 2022</span>
-               <h4>Software Developer, CloudDX</h4>
-               <p>• Built voice controlled interaction system for HoloLens2, showcased at ANA Avatar XPRIZE 2022 with
-                  50+ live demonstrations</p>
-               <p>• Optimized Arduino-HoloLens communication by refactoring C++/C# data processing, reducing latency by
-                  30% for real-time vital sign display</p>
-               <p>• Implemented gesture-based interaction for HoloLens2, improving task completion speed by 20% through
-                  usability testing</p>
+               <div class="resume-item-header">
+                  <div class="resume-item-title-group">
+                     <span class="date">May 2022 – Dec 2022</span>
+                     <h4>Software Developer, CloudDX</h4>
+                  </div>
+                  <i class="fas fa-chevron-down resume-item-chevron"></i>
+               </div>
+               <div class="resume-item-details">
+                  <p>• Built voice controlled interaction system for HoloLens2, showcased at <b>ANA Avatar XPRIZE
+                        2022</b> with
+                     live demonstrations</p>
+                  <p>• Optimized Arduino-HoloLens communication by refactoring C++/C# data processing, <b>reducing
+                        latency
+                        by
+                        30%</b> for real-time vital sign display</p>
+                  <p>• Implemented gesture-based interaction for HoloLens2, <b>improving task completion speed by
+                        20%</b>
+                     through
+                     usability testing</p>
+               </div>
             </div>
 
             <div class="resume-item">
-               <span class="date">Jan 2022 – Apr 2022</span>
-               <h4>Software Developer, Medtech Canada</h4>
-               <p>• Migrated Unity VR clinic simulation from deprecated XR Rig to XR Origin architecture resulting in
-                  40% faster scene load times</p>
-               <p>• Rapidly resolved a critical rendering bug within 48 hours, restoring accurate motion tracking and
-                  eliminating all hand-tracking glitches</p>
-               <p>• Collaborated in Agile/Scrum environment, delivering features across 2-week sprint cycles with daily
-                  standups</p>
+               <div class="resume-item-header">
+                  <div class="resume-item-title-group">
+                     <span class="date">Jan 2022 – Apr 2022</span>
+                     <h4>Software Developer, Medtech Canada</h4>
+                  </div>
+                  <i class="fas fa-chevron-down resume-item-chevron"></i>
+               </div>
+               <div class="resume-item-details">
+                  <p>• Migrated Unity VR clinic simulation from deprecated XR Rig to XR Origin architecture resulting in
+                     <b>40% faster
+                        scene load times</b>
+                  </p>
+                  <p>• Rapidly resolved a critical rendering bug within <b>48 hours</b>, restoring accurate motion
+                     tracking and
+                     eliminating all
+                     hand-tracking glitches</p>
+               </div>
             </div>
          </div>
 
          <div class="resume-column">
+            <!-- <div class="resume-3d-container" id="resume3DContainer"></div> -->
             <h3>Education</h3>
 
             <div class="resume-item">
-               <span class="date">Sep 2024 - Apr 2026</span>
-               <h4>York University</h4>
-               <p>• Honours BSc in Computer Science</p>
-               <p>• GPA 7.71/9</p>
+               <div class="resume-item-header">
+                  <div class="resume-item-title-group">
+                     <span class="date">Sep 2024 - Apr 2026</span>
+                     <h4>York University</h4>
+                  </div>
+                  <i class="fas fa-chevron-down resume-item-chevron"></i>
+               </div>
+               <div class="resume-item-details">
+                  <p>• Honours BSc in Computer Science</p>
+                  <p>• GPA 7.71/9</p>
+               </div>
             </div>
 
             <div class="resume-item">
-               <span class="date">Sep 2020 - Dec 2023</span>
-               <h4>Sheridan College</h4>
-               <p>• Advanced Diploma in Software Development & Network Engineering</p>
-               <p>• GPA 3.78/4</p>
+               <div class="resume-item-header">
+                  <div class="resume-item-title-group">
+                     <span class="date">Sep 2020 - Dec 2023</span>
+                     <h4>Sheridan College</h4>
+                  </div>
+                  <i class="fas fa-chevron-down resume-item-chevron"></i>
+               </div>
+               <div class="resume-item-details">
+                  <p>• Advanced Diploma in Software Development & Network Engineering</p>
+                  <p>• GPA 3.78/4</p>
+               </div>
             </div>
+            <!-- <div class="hero-3d-container" id="hero3DContainer"></div> -->
+
          </div>
       </div>
    </section>
@@ -1414,14 +1630,36 @@
 
             // Store reference for cleanup
             window.sceneManager = sceneManager;
-
-            // Cleanup on page unload
-            window.addEventListener('beforeunload', () => {
-               if (window.sceneManager) {
-                  window.sceneManager.dispose();
-               }
-            });
          }
+
+         // Initialize Resume 3D scene
+         const resumeContainer = document.getElementById('resume3DContainer');
+         if (resumeContainer && typeof window.SceneManager !== 'undefined') {
+            const resumeSceneManager = new window.SceneManager(resumeContainer);
+            resumeSceneManager.init().then(success => {
+               if (success) {
+                  console.log('3D resume section initialized');
+                  // Resize the dog in the resume section by 25%
+                  if (resumeSceneManager.models && resumeSceneManager.models.dog) {
+                     resumeSceneManager.models.dog.scale.set(1.25, 1.25, 1.25);
+                  }
+               }
+            }).catch(error => {
+               console.error('Error initializing 3D resume scene:', error);
+            });
+
+            window.resumeSceneManager = resumeSceneManager;
+         }
+
+         // Cleanup on page unload
+         window.addEventListener('beforeunload', () => {
+            if (window.sceneManager) {
+               window.sceneManager.dispose();
+            }
+            if (window.resumeSceneManager) {
+               window.resumeSceneManager.dispose();
+            }
+         });
       };
 
       // Initialize when DOM is ready
@@ -1541,6 +1779,13 @@
             description: "From awkward to awesome! Stop dreading conversations. Our AI-powered platform turns you into a confident communicator through micro-lessons, real practice and smart insights.",
             tech: ["LangGraph", "FastAPI", "Python", "Next.js", "React", "TypeScript", "Supabase", "VAPI", "Claude"],
             github: "https://github.com/andrewvu270/connected"
+         },
+         {
+            title: "Claw Machine",
+            image: "", // Placeholder for now
+            iframeSrc: "claw/index.html",
+            tech: ["HTML", "CSS", "JavaScript"],
+            github: "https://github.com/andrewvu270/andrewvu270.github.io/tree/main/claw"
          }
       ];
 
@@ -1578,6 +1823,16 @@
          });
       });
 
+      function scrollGallery(id, direction = 1) {
+         const gallery = document.getElementById(id);
+         if (!gallery) return;
+         const scrollAmount = gallery.offsetWidth * 0.8 * direction;
+         gallery.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+         });
+      }
+
       // Project Modal
       let currentVideoIndex = 0;
       let currentProject = null;
@@ -1589,6 +1844,19 @@
          const modal = document.getElementById('projectModal');
          const content = document.getElementById('modalContent');
 
+         // Handle iframe projects
+         if (project.iframeSrc) {
+            modal.classList.add('iframe-mode');
+            content.innerHTML = `
+               <div class="modal-iframe-container">
+                  <iframe src="${project.iframeSrc}" frameborder="0" allowfullscreen></iframe>
+               </div>
+            `;
+            modal.classList.add('active');
+            return;
+         }
+
+         modal.classList.remove('iframe-mode');
          // Check if project has multiple videos (array)
          const hasMultipleVideos = Array.isArray(project.videos) && project.videos.length > 0;
          const hasSingleVideo = project.video && !hasMultipleVideos;
@@ -1714,6 +1982,13 @@
       function closeProject() {
          document.getElementById('projectModal').classList.remove('active');
       }
+
+      // Foldable Resume Items
+      document.querySelectorAll('.resume-item').forEach(item => {
+         item.addEventListener('click', () => {
+            item.classList.toggle('expanded');
+         });
+      });
 
       // Resume Modal
       function openResumeModal() {
