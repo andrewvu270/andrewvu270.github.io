@@ -409,6 +409,45 @@
          width: max-content;
       }
 
+      /* Gallery Wrapper for floating navigation */
+      .gallery-wrapper {
+         position: relative;
+         width: 100%;
+      }
+
+      /* Grouped top-right controls */
+      .gallery-controls {
+         display: flex;
+         justify-content: flex-end;
+         padding: 0 60px 24px;
+         /* Matches track padding */
+         width: 100%;
+      }
+
+      .gallery-nav-group {
+         display: flex;
+         gap: 0px;
+         z-index: 100;
+      }
+
+      .gallery-nav {
+         background: none;
+         border: none;
+         color: var(--gray-400);
+         font-size: 20px;
+         padding: 10px;
+         cursor: pointer;
+         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .gallery-nav:hover {
+         color: var(--black);
+         transform: scale(1.3);
+      }
+
       /* Project Cards - Large, Image-focused */
       .project-card {
          position: relative;
@@ -1237,6 +1276,9 @@
          <div class="section-header">
             <h2 class="section-title">Featured Projects</h2>
          </div>
+      </div>
+
+      <div class="gallery-wrapper">
          <div class="gallery-controls">
             <div class="gallery-nav-group">
                <button class="gallery-nav prev" onclick="scrollGallery('galleryContainer', -1)">
@@ -1247,85 +1289,85 @@
                </button>
             </div>
          </div>
-      </div>
 
-      <div class="gallery-container" id="galleryContainer">
-         <div class="gallery-track">
+         <div class="gallery-container" id="galleryContainer">
+            <div class="gallery-track">
 
-            <!-- Remi -->
-            <div class="project-card" onclick="openProject(0)">
-               <video src="videos/rm12a.mp4" autoplay loop muted playsinline class="card-media"></video>
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>REMI</h3>
-                  <p>Remi the reminder monster will schedule and remind you of your study sessions</p>
-                  <div class="project-tags">
-                     <span class="tag">LLM</span>
-                     <span class="tag">ML</span>
-                     <span class="tag">FastAPI</span>
-                     <span class="tag">React</span>
+               <!-- Remi -->
+               <div class="project-card" onclick="openProject(0)">
+                  <video src="videos/rm12a.mp4" autoplay loop muted playsinline class="card-media"></video>
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>REMI</h3>
+                     <p>Remi the reminder monster will schedule and remind you of your study sessions</p>
+                     <div class="project-tags">
+                        <span class="tag">LLM</span>
+                        <span class="tag">ML</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">React</span>
+                     </div>
                   </div>
                </div>
-            </div>
 
-            <!-- MindForge -->
-            <div class="project-card" onclick="openProject(1)">
-               <video src="videos/mf12.mp4" autoplay loop muted playsinline class="card-media"></video>
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>MindForge</h3>
-                  <p>AI microlearning platform with 7-agent system</p>
-                  <div class="project-tags">
-                     <span class="tag">LLM</span>
-                     <span class="tag">FastAPI</span>
-                     <span class="tag">React</span>
+               <!-- MindForge -->
+               <div class="project-card" onclick="openProject(1)">
+                  <video src="videos/mf12.mp4" autoplay loop muted playsinline class="card-media"></video>
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>MindForge</h3>
+                     <p>AI microlearning platform with 7-agent system</p>
+                     <div class="project-tags">
+                        <span class="tag">LLM</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">React</span>
+                     </div>
                   </div>
                </div>
-            </div>
 
-            <!-- Connected -->
-            <div class="project-card" onclick="openProject(8)">
-               <video src="videos/cn1.mp4" autoplay loop muted playsinline class="card-media"></video>
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>Connected</h3>
-                  <p>From awkward to awesome! Stop dreading conversations. Our AI-powered platform turns you into a
-                     confident communicator through micro-lessons, real practice and smart insights.</p>
-                  <div class="project-tags">
-                     <span class="tag">LLM</span>
-                     <span class="tag">VAPI</span>
-                     <span class="tag">FastAPI</span>
-                     <span class="tag">React</span>
+               <!-- Connected -->
+               <div class="project-card" onclick="openProject(8)">
+                  <video src="videos/cn1.mp4" autoplay loop muted playsinline class="card-media"></video>
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>Connected</h3>
+                     <p>From awkward to awesome! Stop dreading conversations. Our AI-powered platform turns you into a
+                        confident communicator through micro-lessons, real practice and smart insights.</p>
+                     <div class="project-tags">
+                        <span class="tag">LLM</span>
+                        <span class="tag">VAPI</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">React</span>
+                     </div>
                   </div>
                </div>
-            </div>
 
-            <!-- Admittree -->
-            <div class="project-card" onclick="openProject(7)">
-               <video src="videos/at3.mp4" autoplay loop muted playsinline class="card-media"></video>
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>Admittree</h3>
-                  <p>Admittree</p>
-                  <div class="project-tags">
-                     <span class="tag">LLM</span>
-                     <span class="tag">FastAPI</span>
-                     <span class="tag">React</span>
+               <!-- Admittree -->
+               <div class="project-card" onclick="openProject(7)">
+                  <video src="videos/at3.mp4" autoplay loop muted playsinline class="card-media"></video>
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>Admittree</h3>
+                     <p>Admittree</p>
+                     <div class="project-tags">
+                        <span class="tag">LLM</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">React</span>
+                     </div>
                   </div>
                </div>
-            </div>
 
 
-            <!-- Discord Bots -->
-            <div class="project-card" onclick="openProject(6)">
-               <img src="images/db-thumb.jpg" alt="Discord Bots">
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>Discord Bots</h3>
-                  <p>Collection of Python bots</p>
-                  <div class="project-tags">
-                     <span class="tag">Python</span>
-                     <span class="tag">Discord API</span>
+               <!-- Discord Bots -->
+               <div class="project-card" onclick="openProject(6)">
+                  <img src="images/db-thumb.jpg" alt="Discord Bots">
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>Discord Bots</h3>
+                     <p>Collection of Python bots</p>
+                     <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Discord API</span>
+                     </div>
                   </div>
                </div>
             </div>
@@ -1339,6 +1381,9 @@
          <div class="section-header">
             <h2 class="section-title">Featured Games</h2>
          </div>
+      </div>
+
+      <div class="gallery-wrapper">
          <div class="gallery-controls">
             <div class="gallery-nav-group">
                <button class="gallery-nav prev" onclick="scrollGallery('galleryContainer2', -1)">
@@ -1349,81 +1394,81 @@
                </button>
             </div>
          </div>
-      </div>
 
-      <div class="gallery-container" id="galleryContainer2">
-         <div class="gallery-track">
+         <div class="gallery-container" id="galleryContainer2">
+            <div class="gallery-track">
 
-            <!-- Claw Machine -->
-            <div class="project-card" onclick="openProject(9)">
-               <video src="videos/cm.mp4" autoplay loop muted playsinline class="card-media"></video>
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>Claw Machine</h3>
-                  <p>Interactive pixel-art claw machine</p>
-                  <div class="project-tags">
-                     <span class="tag">HTML/CSS</span>
-                     <span class="tag">JS</span>
+               <!-- Claw Machine -->
+               <div class="project-card" onclick="openProject(9)">
+                  <video src="videos/cm.mp4" autoplay loop muted playsinline class="card-media"></video>
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>Claw Machine</h3>
+                     <p>Interactive pixel-art claw machine</p>
+                     <div class="project-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JS</span>
+                     </div>
                   </div>
                </div>
-            </div>
 
-            <!-- Lucid Souls -->
-            <div class="project-card" onclick="openProject(2)">
-               <video src="videos/lc2.mp4" autoplay loop muted playsinline class="card-media"></video>
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>Lucid Souls</h3>
-                  <p>Lucid dreaming simulation in Unreal Engine 5</p>
-                  <div class="project-tags">
-                     <span class="tag">UE5</span>
-                     <span class="tag">C++</span>
+               <!-- Lucid Souls -->
+               <div class="project-card" onclick="openProject(2)">
+                  <video src="videos/lc2.mp4" autoplay loop muted playsinline class="card-media"></video>
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>Lucid Souls</h3>
+                     <p>Lucid dreaming simulation in Unreal Engine 5</p>
+                     <div class="project-tags">
+                        <span class="tag">UE5</span>
+                        <span class="tag">C++</span>
+                     </div>
                   </div>
                </div>
-            </div>
 
-            <!-- Hollow Knight -->
-            <div class="project-card" onclick="openProject(4)">
-               <video src="videos/hk3.mp4" autoplay loop muted playsinline class="card-media"></video>
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>Hollow Knight</h3>
-                  <p>Open world RPG game</p>
-                  <div class="project-tags">
-                     <span class="tag">Unity</span>
-                     <span class="tag">C#</span>
+               <!-- Hollow Knight -->
+               <div class="project-card" onclick="openProject(4)">
+                  <video src="videos/hk3.mp4" autoplay loop muted playsinline class="card-media"></video>
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>Hollow Knight</h3>
+                     <p>Open world RPG game</p>
+                     <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                     </div>
                   </div>
                </div>
-            </div>
 
-            <!-- VUChess -->
-            <div class="project-card" onclick="openProject(3)">
-               <video src="videos/vc2.mp4" autoplay loop muted playsinline class="card-media"></video>
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>VUChess</h3>
-                  <p>Online multiplayer chess with WebSockets</p>
-                  <div class="project-tags">
-                     <span class="tag">Node.js</span>
-                     <span class="tag">Socket.IO</span>
+               <!-- VUChess -->
+               <div class="project-card" onclick="openProject(3)">
+                  <video src="videos/vc2.mp4" autoplay loop muted playsinline class="card-media"></video>
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>VUChess</h3>
+                     <p>Online multiplayer chess with WebSockets</p>
+                     <div class="project-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Socket.IO</span>
+                     </div>
                   </div>
                </div>
-            </div>
 
-            <!-- Wildwest VR -->
-            <div class="project-card" onclick="openProject(5)">
-               <img src="images/vr-thumb.jpg" alt="Wildwest VR">
-               <div class="overlay"></div>
-               <div class="info">
-                  <h3>Wildwest VR</h3>
-                  <p>VR FPS for Oculus Quest 2</p>
-                  <div class="project-tags">
-                     <span class="tag">Unity VR</span>
-                     <span class="tag">C#</span>
+               <!-- Wildwest VR -->
+               <div class="project-card" onclick="openProject(5)">
+                  <img src="images/vr-thumb.jpg" alt="Wildwest VR">
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>Wildwest VR</h3>
+                     <p>VR FPS for Oculus Quest 2</p>
+                     <div class="project-tags">
+                        <span class="tag">Unity VR</span>
+                        <span class="tag">C#</span>
+                     </div>
                   </div>
                </div>
-            </div>
 
+            </div>
          </div>
       </div>
    </section>
