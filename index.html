@@ -728,26 +728,27 @@
       }
 
       /* Iframe Modal Styles */
-      .project-modal.iframe-mode .modal-content {
-         max-width: 1200px;
-         margin: 20px auto;
-         padding: 0;
+      .modal-iframe-container {
+         width: 100%;
+         height: 90vh;
+         min-height: 600px;
          border-radius: 20px;
-         height: calc(100vh - 40px);
-         max-height: calc(100vh - 40px);
          overflow: hidden;
+         margin-bottom: 40px;
+         position: relative;
+         background: #fff;
       }
 
-      .project-modal.iframe-mode .modal-close {
-         background: rgba(255, 255, 255, 0.9);
-         backdrop-filter: blur(4px);
-         z-index: 10;
+      .modal-iframe-container iframe {
+         width: 100%;
+         height: 100%;
+         border: none;
       }
 
-      .project-modal.iframe-mode .modal-fullscreen {
+      .modal-fullscreen {
          position: absolute;
          top: 20px;
-         right: 80px;
+         right: 20px;
          width: 50px;
          height: 50px;
          border-radius: 50%;
@@ -764,19 +765,8 @@
          transition: background 0.2s;
       }
 
-      .project-modal.iframe-mode .modal-fullscreen:hover {
+      .modal-fullscreen:hover {
          background: var(--gray-200);
-      }
-
-      .modal-iframe-container {
-         width: 100%;
-         height: 100%;
-      }
-
-      .modal-iframe-container iframe {
-         width: 100%;
-         height: 100%;
-         border: none;
       }
 
       /* Game Instructions Overlay */
@@ -1155,8 +1145,6 @@
       /* Prevent body scroll when modal is open */
       body.modal-open {
          overflow: hidden;
-         position: fixed;
-         width: 100%;
       }
 
       /* Responsive */
@@ -1248,9 +1236,9 @@
          .modal-content {
             margin: 20px;
             padding: 30px 20px;
-            min-height: calc(100vh - 40px);
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
+            min-height: auto;
+            max-height: none;
+            overflow-y: visible;
          }
 
          .modal-image {
@@ -1990,19 +1978,40 @@
          const modal = document.getElementById('projectModal');
          const content = document.getElementById('modalContent');
 
-         // Handle iframe projects (claw machine)
+         // Handle iframe projects (claw machine) - same structure as other projects
          if (project.iframeSrc) {
-            modal.classList.add('iframe-mode');
             content.innerHTML = `
                <div class="modal-iframe-container">
+                  <button class="modal-fullscreen" onclick="toggleFullscreen()" title="Fullscreen">
+                     <i class="fas fa-expand"></i>
+                  </button>
                   <iframe src="${project.iframeSrc}" frameborder="0" allowfullscreen></iframe>
+               </div>
+               <div class="modal-info">
+                  <div>
+                     <h2>${project.title}</h2>
+                     <p>${project.description}</p>
+                     <div class="modal-links">
+                        <a href="${project.github}" target="_blank">
+                           <i class="fab fa-github"></i> Code
+                        </a>
+                        ${project.live ? `<a href="${project.live}" target="_blank" class="secondary">
+                           <i class="fas fa-external-link-alt"></i> Website
+                        </a>` : ''}
+                     </div>
+                  </div>
+                  <div class="modal-tech">
+                     <h4>Technologies</h4>
+                     <div class="modal-tech-tags">
+                        ${project.tech.map(t => `<span>${t}</span>`).join('')}
+                     </div>
+                  </div>
                </div>
             `;
             modal.classList.add('active');
+            document.body.classList.add('modal-open');
             return;
          }
-
-         modal.classList.remove('iframe-mode');
          // Check if project has multiple videos (array)
          const hasMultipleVideos = Array.isArray(project.videos) && project.videos.length > 0;
          const hasSingleVideo = project.video && !hasMultipleVideos;
@@ -2080,6 +2089,7 @@
             `;
 
          modal.classList.add('active');
+         document.body.classList.add('modal-open');
 
          // Scroll modal to center
          setTimeout(() => {
@@ -2137,13 +2147,15 @@
          }
          
          modal.classList.remove('active');
-         modal.classList.remove('iframe-mode');
+         document.body.classList.remove('modal-open');
       }
 
       function toggleFullscreen() {
          const iframe = document.querySelector('.modal-iframe-container iframe');
          if (iframe) {
-            if (iframe.requestFullscreen) {
+            if (document.fullscreenElement) {
+               document.exitFullscreen();
+            } else if (iframe.requestFullscreen) {
                iframe.requestFullscreen();
             } else if (iframe.webkitRequestFullscreen) {
                iframe.webkitRequestFullscreen();
@@ -2159,7 +2171,7 @@
          const content = document.getElementById('modalContent');
          if (overlay && container && currentProject && currentProject.iframeSrc) {
             overlay.style.display = 'none';
-            
+           
             if (showFullscreen) {
                const fullscreenBtn = document.createElement('button');
                fullscreenBtn.className = 'modal-fullscreen';
@@ -2168,7 +2180,7 @@
                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
                content.appendChild(fullscreenBtn);
             }
-            
+           
             container.innerHTML = `<iframe src="${currentProject.iframeSrc}" frameborder="0" allowfullscreen></iframe>`;
          }
       }
@@ -2178,10 +2190,12 @@
       // Resume Modal
       function openResumeModal() {
          document.getElementById('resumeModal').classList.add('active');
+         document.body.classList.add('modal-open');
       }
 
       function closeResumeModal() {
          document.getElementById('resumeModal').classList.remove('active');
+         document.body.classList.remove('modal-open');
       }
 
       // Close modals on outside click
