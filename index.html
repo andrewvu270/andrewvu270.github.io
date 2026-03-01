@@ -1356,6 +1356,22 @@
                   </div>
                </div>
 
+               <!-- Clear&Claw -->
+               <div class="project-card" onclick="openProject(11)">
+                  <video src="videos/cc3.mp4" autoplay loop muted playsinline class="card-media"></video>
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>Clear&Claw</h3>
+                     <p>Task management for ADHD brains that don't do boring</p>
+                     <div class="project-tags">
+                        <span class="tag">LLM</span>
+                        <span class="tag">VAPI</span>
+                        <span class="tag">Vite</span>
+                        <span class="tag">React</span>
+                     </div>
+                  </div>
+               </div>
+
                <!-- MindForge -->
                <div class="project-card" onclick="openProject(1)">
                   <video src="videos/mf1.mp4" autoplay loop muted playsinline class="card-media"></video>
@@ -1891,13 +1907,28 @@
             live: "https://c1aw.netlify.app/"
          },
          {
-            title: "Dungeon",
+            title: "Tiny Dungeon",
             image: "dungeon/index.png",
             video: "videos/td.mp4",
             description: "A tiny dungeon survival game built with Godot. Try to survive the waves!",
             tech: ["Godot", "GDScript"],
             github: "https://github.com/andrewvu270/TinyDungeon/tree/WeightedTableBug",
             live: "https://tinydungeon.netlify.app/"
+         },
+         {
+            title: "Clear & Claw",
+            image: "images/cc.png",
+            videos: [  // Multiple videos for carousel
+               "videos/cc1.mp4",
+               "videos/cc2.mp4",
+               "videos/cc3.mp4",
+               "videos/cc4.mp4",
+               "videos/cc5.mp4"
+            ],
+            description: "Task management for ADHD brains that don't do boring. Agentic AI will help you focus with subtasks, timer, reminder, recurrence. Clear tasks and play claw. EZPZ for ADHD brains!",
+            tech: ["VAPI", "Groq", "Digital Ocean", "Vite", "Supabase", "React", "TypeScript", "Cloudflare R2"],
+            github: "https://github.com/andrewvu270/ClearNClaw",
+            live: "https://clear-n-claw.vercel.app"
          }
       ];
 
