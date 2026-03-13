@@ -1340,6 +1340,23 @@
          <div class="gallery-container" id="galleryContainer">
             <div class="gallery-track">
 
+
+               <!-- Rapport -->
+               <div class="project-card" onclick="openProject(12)">
+                  <video src="videos/rp.mp4" autoplay loop muted playsinline class="card-media"></video>
+                  <div class="overlay"></div>
+                  <div class="info">
+                     <h3>Rapport</h3>
+                     <p>Rapport AI</p>
+                     <div class="project-tags">
+                        <span class="tag">LLM</span>
+                        <span class="tag">VAPI</span>
+                        <span class="tag">Tavu</span>
+                        <span class="tag">Next.js</span>
+                     </div>
+                  </div>
+               </div>
+
                <!-- Clear&Claw -->
                <div class="project-card" onclick="openProject(11)">
                   <video src="videos/cc3.mp4" autoplay loop muted playsinline class="card-media"></video>
@@ -1926,9 +1943,18 @@
                "videos/cc5.mp4"
             ],
             description: "Task management for ADHD brains that don't do boring. Agentic AI will auto breakdown task into subtasks and help you focus with timer, reminder, recurrence. Clear tasks and play claw machine. EZPZ for ADHD brains!",
-            tech: ["VAPI", "Groq", "Digital Ocean", "Vite", "Supabase", "React", "TypeScript", "Cloudflare R2"],
+            tech: ["Vite", "React", "TypeScript", "VAPI", "Groq", "Digital Ocean", "Supabase", "Cloudflare R2"],
             github: "https://github.com/andrewvu270/ClearNClaw",
             live: "https://clear-n-claw.vercel.app"
+         },
+         {
+            title: "Rapport AI",
+            image: "images/cc.png",
+            videos: ["videos/rp.mp4", "videos/rp2.mp4"],
+            description: "AI-powered networking practice app. Upload an event or meeting context, get AI-generated person cards for each attendee, then practice real conversations via voice or video before you walk in the room.",
+            tech: ["Next.js", "VAPI", "Tavus", "Firecrawl", "Tavily", "Claude", "OpenAI", "Supabase", "Pinecone", "React", "TypeScript"],
+            github: "https://github.com/andrewvu270/Rapport",
+            live: "https://rapport-prep-ai.vercel.app"
          }
       ];
 
@@ -2144,14 +2170,14 @@
       function closeProject() {
          const modal = document.getElementById('projectModal');
          const content = document.getElementById('modalContent');
-         
+
          // Remove iframe to stop any running game/audio
          const iframe = content.querySelector('iframe');
          if (iframe) {
             iframe.src = '';
             iframe.remove();
          }
-         
+
          modal.classList.remove('active');
          document.body.classList.remove('modal-open');
       }
